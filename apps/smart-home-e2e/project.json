@@ -1,0 +1,10 @@
+{
+  "name": "smart-home-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/smart-home-e2e/src",
+  "tags": [],
+  "implicitDependencies": ["smart-home"],
+  "// targets": "to see all targets run: nx show project smart-home-e2e --web",
+  "targets": {}
+}
