@@ -1,0 +1,43 @@
+name: Main
+run-name: Deploy to Azure
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+jobs:
+  CheckLint:
+    name: Check lint and prettier
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      - run: npm ci
+        if: github.ref != 'refs/heads/main'
+      - run: git rev-parse --verify main || git remote set-branches origin main && git fetch --depth 1 origin main && git branch main origin/main
+      - name: check lint
+        run: 'npm run lint:check'
+      - name: check prettier
+        run: 'npm run format:check'
+  RunUnitTests:
+    name: Run unit tests
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      actions: read
+      checks: write
+    needs: CheckLint
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      - run: npm ci
+      - name: run unit tests
+        run: npm run test
