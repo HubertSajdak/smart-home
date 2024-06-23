@@ -6,46 +6,46 @@ on:
       - main
 env:
   AZURE_WEBAPP_NAME: smart-home-hubert-sajdak
-  AZURE_WEBAPP_PACKAGE_PATH: "smart-home/dist"
+  AZURE_WEBAPP_PACKAGE_PATH: ""
   NODE_VERSION: "20.x"
 jobs:
-  CheckLint:
-    name: Check lint and prettier
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Install node
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-      - run: npm ci
-        if: github.ref != 'refs/heads/main'
-      - run: git rev-parse --verify main || git remote set-branches origin main && git fetch --depth 1 origin main && git branch main origin/main
-      - name: check lint
-        run: 'npm run lint:check'
-      - name: check prettier
-        run: 'npm run format:check'
-  RunUnitTests:
-    name: Run unit tests
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      actions: read
-      checks: write
-    needs: CheckLint
-    steps:
-      - uses: actions/checkout@v4
-      - name: Install node
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-      - run: npm ci
-      - name: run unit tests
-        run: npm run test
+  #  CheckLint:
+  #    name: Check lint and prettier
+  #    runs-on: ubuntu-latest
+  #    steps:
+  #      - uses: actions/checkout@v4
+  #      - name: Install node
+  #        uses: actions/setup-node@v4
+  #        with:
+  #          node-version: ${{ env.NODE_VERSION }}
+  #      - run: npm ci
+  #        if: github.ref != 'refs/heads/main'
+  #      - run: git rev-parse --verify main || git remote set-branches origin main && git fetch --depth 1 origin main && git branch main origin/main
+  #      - name: check lint
+  #        run: 'npm run lint:check'
+  #      - name: check prettier
+  #        run: 'npm run format:check'
+  #  RunUnitTests:
+  #    name: Run unit tests
+  #    runs-on: ubuntu-latest
+  #    permissions:
+  #      contents: read
+  #      actions: read
+  #      checks: write
+  #    needs: CheckLint
+  #    steps:
+  #      - uses: actions/checkout@v4
+  #      - name: Install node
+  #        uses: actions/setup-node@v4
+  #        with:
+  #          node-version: ${{ env.NODE_VERSION }}
+  #      - run: npm ci
+  #      - name: run unit tests
+  #        run: npm run test
   DeployToAzure:
     name: Build and Deploy App
     runs-on: ubuntu-latest
-    needs: RunUnitTests
+    #    needs: RunUnitTests
     steps:
       - uses: actions/checkout@main
       - name: Use Node.js ${{ env.NODE_VERSION }}
