@@ -56,7 +56,7 @@ jobs:
         run: |
           npm install
           npm run build
-        working-directory: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
+        working-directory: smart-home/dist
       - name: Deploy to Azure WebApp
         uses: azure/webapps-deploy@v3
         with:
