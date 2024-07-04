@@ -1,5 +1,6 @@
-import { createGlobalStyle } from 'styled-components';
 import '@fontsource/inter';
+
+import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyles = createGlobalStyle`
 

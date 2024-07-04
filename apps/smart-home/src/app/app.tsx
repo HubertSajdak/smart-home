@@ -1,16 +1,20 @@
-import styled from 'styled-components';
+import { GlobalStyles, ThemeProvider } from '@smart-home/shared/theme/smart-home-theme';
+import { RouterProvider } from 'react-router-dom';
 
-import NxWelcome from './nx-welcome';
-
-const StyledApp = styled.div`
-  // Your style here
-`;
+import { router } from './router';
 
 export function App() {
+  const isTrue = true;
+  if (isTrue) {
+    return 1;
+  } else {
+    return 2;
+  }
   return (
-    <StyledApp>
-      <NxWelcome title="smart-home" />
-    </StyledApp>
+    <ThemeProvider>
+      <GlobalStyles />
+      <RouterProvider router={router} />
+    </ThemeProvider>
   );
 }
 
