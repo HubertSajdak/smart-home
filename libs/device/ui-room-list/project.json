@@ -1,0 +1,11 @@
+{
+  "name": "device-ui-room-list",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/device/ui-room-list/src",
+  "projectType": "library",
+  "tags": [
+    "type:ui"
+  ],
+  "// targets": "to see all targets run: nx show project device-ui-room-list --web",
+  "targets": {}
+}

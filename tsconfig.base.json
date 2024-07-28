@@ -10,19 +10,73 @@
     "importHelpers": true,
     "target": "es2015",
     "module": "esnext",
-    "lib": ["es2020", "dom"],
+    "lib": [
+      "es2020",
+      "dom"
+    ],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@smart-home/device/data-access-device": ["libs/device/data-access-device/src/index.ts"],
-      "@smart-home/device/feature-device-dashboard": ["libs/device/feature-device-dashboard/src/index.ts"],
-      "@smart-home/device/theme": ["libs/device/theme/src/index.ts"],
-      "@smart-home/device/ui-device-list": ["libs/device/ui-device-list/src/index.ts"],
-      "@smart-home/feature-device-list": ["libs/feature-device-list/src/index.ts"],
-      "@smart-home/shared/theme/smart-home-theme": ["libs/shared/theme/smart-home-theme/src/index.ts"],
-      "@smart-home/shared/utils/routes": ["libs/shared/utils/routes/src/index.ts"]
+      "@smart-home/device/data-access-device": [
+        "libs/device/data-access-device/src/index.ts"
+      ],
+      "@smart-home/device/data-access-room-list": [
+        "libs/device/data-access-room-list/src/index.ts"
+      ],
+      "@smart-home/device/feature-device-dashboard": [
+        "libs/device/feature-device-dashboard/src/index.ts"
+      ],
+      "@smart-home/device/theme": [
+        "libs/device/theme/src/index.ts"
+      ],
+      "@smart-home/device/ui-device-list": [
+        "libs/device/ui-device-list/src/index.ts"
+      ],
+      "@smart-home/device/ui-room-list": [
+        "libs/device/ui-room-list/src/index.ts"
+      ],
+      "@smart-home/feature-device-list": [
+        "libs/feature-device-list/src/index.ts"
+      ],
+      "@smart-home/shared/assets": [
+        "libs/shared/assets/src/index.ts"
+      ],
+      "@smart-home/shared/supabase/db": [
+        "libs/shared/supabase/db/src/index.ts"
+      ],
+      "@smart-home/shared/theme/smart-home-theme": [
+        "libs/shared/theme/smart-home-theme/src/index.ts"
+      ],
+      "@smart-home/shared/ui/icon-button": [
+        "libs/shared/ui/icon-button/src/index.ts"
+      ],
+      "@smart-home/shared/ui/nav-link": [
+        "libs/shared/ui/nav-link/src/index.ts"
+      ],
+      "@smart-home/shared/ui/typography": [
+        "libs/shared/ui/typography/src/index.ts"
+      ],
+      "@smart-home/shared/utils/db": [
+        "libs/shared/utils/db/src/index.ts"
+      ],
+      "@smart-home/shared/utils/functions": [
+        "libs/shared/utils/functions/src/index.ts"
+      ],
+      "@smart-home/shared/utils/hooks": [
+        "libs/shared/utils/hooks/src/index.ts"
+      ],
+      "@smart-home/shared/utils/routes": [
+        "libs/shared/utils/routes/src/index.ts"
+      ],
+      "@smart-home/ui": [
+        "libs/ui/src/index.ts"
+      ]
     }
   },
-  "exclude": ["node_modules", "tmp", ".github"]
+  "exclude": [
+    "node_modules",
+    "tmp",
+    ".github"
+  ]
 }

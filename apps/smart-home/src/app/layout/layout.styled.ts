@@ -2,8 +2,12 @@ import styled from 'styled-components';
 
 export const StyledLayout = styled.div(() => ({
   display: 'grid',
-  gridTemplateColumns: '330px 1fr',
+  gridTemplateColumns: '276px 1fr',
+  gridTemplateRows: '1fr',
   height: '100vh',
+  '@media (max-width:1440px)': {
+    gridTemplateColumns: '1fr',
+  },
 }));
 export const StyledLayoutContentWrapper = styled.main(({ theme }) => ({
   backgroundColor: theme.palette.primary.main,
@@ -12,10 +16,22 @@ export const StyledLayoutContentWrapper = styled.main(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
 }));
-export const StyledLayoutSidebarWrapper = styled.div(({ theme }) => ({
+export const StyledLayoutSidebarWrapper = styled.div<{ $isSidebarOpen: boolean }>(({ $isSidebarOpen, theme }) => ({
   display: 'grid',
-  gridTemplateRows: 'auto auto 1fr auto',
-  gridGap: theme.spacing(3.75),
+  gridTemplateRows: '1fr',
+  gap: theme.spacing(3.75),
   padding: theme.spacing(3.75),
   backgroundColor: theme.palette.primary.light,
+  '@media (max-width:1440px)': {
+    position: 'fixed',
+    top: 0,
+    right: 0,
+    height: '100vh',
+    width: '360px',
+    marginRight: $isSidebarOpen ? 0 : '-360px',
+  },
+  '@media (max-width:965px)': {
+    width: '100%',
+    marginRight: $isSidebarOpen ? 0 : '-110%',
+  },
 }));

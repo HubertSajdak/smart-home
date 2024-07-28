@@ -8,6 +8,16 @@ export const router = createBrowserRouter([
   {
     element: <Layout />,
     errorElement: <h1>Something went wrong...</h1>,
-    children: [{ index: true, path: routes.device.list.url(), element: <DeviceFeatureDeviceDashboard /> }],
+    children: [
+      { index: true, path: routes.device.list.url, element: <DeviceFeatureDeviceDashboard /> },
+      {
+        path: routes.settings.url,
+        element: <DeviceFeatureDeviceDashboard />,
+      },
+      {
+        path: routes.room.url,
+        element: <DeviceFeatureDeviceDashboard />,
+      },
+    ],
   },
 ]);

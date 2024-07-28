@@ -29,7 +29,11 @@ interface IDarkTheme {
     };
   };
   typography: {
-    fontSize: string;
+    fontSize: {
+      small: string;
+      medium: string;
+      large: string;
+    };
     fontWeight: {
       light: 300;
       regular: 400;
@@ -60,11 +64,22 @@ interface IDarkTheme {
       fontSize: '32px';
       letterSpacing: '-0.02em';
     };
+    headerL: {
+      weight: 700;
+      font: 'Inter';
+      fontSize: '40px';
+      letterSpacing: '-0.02em';
+    };
   };
   spacing: (number: number) => string;
+  screen: {
+    mobile: '360px';
+    tablet: '965px';
+    desktop: '1440px';
+  };
 }
 
-export const darkTheme = {
+export const darkTheme: IDarkTheme = {
   palette: {
     primary: {
       light: '#232C37',
@@ -128,6 +143,12 @@ export const darkTheme = {
       fontSize: '32px',
       letterSpacing: '-0.02em',
     },
+    headerL: { weight: 700, font: 'Inter', fontSize: '40px', letterSpacing: '-0.02em' },
   },
   spacing: numToPx,
+  screen: {
+    mobile: '360px',
+    tablet: '965px',
+    desktop: '1440px',
+  },
 };

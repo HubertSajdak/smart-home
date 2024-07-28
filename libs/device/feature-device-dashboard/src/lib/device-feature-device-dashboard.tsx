@@ -5,11 +5,7 @@ const StyledDeviceFeatureDeviceDashboard = styled.div`
 `;
 
 export function DeviceFeatureDeviceDashboard() {
-  return (
-    <StyledDeviceFeatureDeviceDashboard>
-      <h1>Welcome to DeviceFeatureDeviceDashboard!</h1>
-    </StyledDeviceFeatureDeviceDashboard>
-  );
+  return <StyledDeviceFeatureDeviceDashboard></StyledDeviceFeatureDeviceDashboard>;
 }
 
 export default DeviceFeatureDeviceDashboard;

@@ -4,12 +4,6 @@ import { RouterProvider } from 'react-router-dom';
 import { router } from './router';
 
 export function App() {
-  const isTrue = true;
-  if (isTrue) {
-    return 1;
-  } else {
-    return 2;
-  }
   return (
     <ThemeProvider>
       <GlobalStyles />
