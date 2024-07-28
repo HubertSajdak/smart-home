@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 
-import DeviceUiRoomList from './device-ui-room-list';
+import { DeviceUiRoomList } from './device-ui-room-list';
 
 describe('DeviceUiRoomList', () => {
   it('should render successfully', () => {
