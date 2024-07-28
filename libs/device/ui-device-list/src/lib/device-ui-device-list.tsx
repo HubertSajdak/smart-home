@@ -11,5 +11,3 @@ export function DeviceUiDeviceList() {
     </StyledDeviceUiDeviceList>
   );
 }
-
-export default DeviceUiDeviceList;
