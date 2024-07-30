@@ -1,13 +1,13 @@
 export const routes = {
   device: {
     list: {
-      url: '/device-list',
-      path: () => 'device-list',
+      url: '/',
+      path: () => '/',
     },
   },
   settings: {
     url: '/settings',
-    path: () => 'settings',
+    path: () => '/settings',
   },
   room: {
     url: '/room/:id',
