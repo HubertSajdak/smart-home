@@ -11,6 +11,4 @@ export const StyledTitle = styled.div(({ theme }) => ({
   fontWeight: theme.typography.fontWeight.bold,
   fontSize: theme.typography.fontSize.large,
 }));
-export const StyledNavigation = styled.div(() => ({
-  background: 'red',
-}));
+export const StyledNavigation = styled.div(() => ({}));
