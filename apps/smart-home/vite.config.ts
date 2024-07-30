@@ -39,4 +39,8 @@ export default defineConfig({
       transformMixedEsModules: true,
     },
   },
+
+  test: {
+    passWithNoTests: true,
+  },
 });
