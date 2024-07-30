@@ -4,7 +4,7 @@ import SharedUiTypography from './typography';
 
 describe('SharedUiTypography', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<SharedUiTypography />);
+    const { baseElement } = render(<SharedUiTypography>Test</SharedUiTypography>);
     expect(baseElement).toBeTruthy();
   });
 });
