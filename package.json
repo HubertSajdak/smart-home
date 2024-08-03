@@ -8,7 +8,7 @@
     "build": "nx build smart-home --prod",
     "test": "nx run-many --target=test --all --parallel",
     "lint:check": "nx run-many --all --target=lint --parallel",
-    "lint:fix": "nx run-many --all --target=lint --fix --parallel",
+    "lint:fix": "nx run-many --all --target=lint --fix --parallel --outputStyle static",
     "format:fix": "nx format:write --configuration ./.prettierrc",
     "format:check": "nx format:check --configuration ./.prettierrc",
     "code:check": "npm run format:check && npm run lint:check",
@@ -17,16 +17,22 @@
   "private": true,
   "dependencies": {
     "@fontsource/inter": "^5.0.18",
+    "@mui/base": "^5.0.0-beta.40",
     "@mui/styled-engine-sc": "^6.0.0-alpha.18",
     "@mui/system": "^5.15.20",
+    "@prisma/client": "^5.17.0",
+    "@supabase/supabase-js": "^2.44.4",
     "normalize.css": "^8.0.1",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "react-is": "18.3.1",
+    "react-router-dom": "6.11.2",
     "styled-components": "^6.1.11",
     "tslib": "^2.3.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.14.5",
+    "@babel/preset-react": "^7.14.5",
     "@commitlint/cli": "^19.3.0",
     "@commitlint/config-conventional": "^19.2.2",
     "@nrwl/cli": "^15.9.3",
@@ -53,6 +59,7 @@
     "@typescript-eslint/eslint-plugin": "^7.3.0",
     "@typescript-eslint/parser": "^7.3.0",
     "@vitejs/plugin-react": "^4.2.0",
+    "@vitest/coverage-v8": "^1.0.4",
     "@vitest/ui": "^1.3.1",
     "babel-jest": "^29.4.1",
     "babel-plugin-styled-components": "1.10.7",
@@ -77,6 +84,7 @@
     "ts-node": "10.9.1",
     "typescript": "~5.4.2",
     "vite": "^5.0.0",
+    "vite-plugin-svgr": "^4.2.0",
     "vitest": "^1.3.1"
   }
 }

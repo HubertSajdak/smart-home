@@ -1,0 +1,9 @@
+{
+  "name": "shared-supabase-db",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/shared/supabase/db/src",
+  "projectType": "library",
+  "tags": ["type:db"],
+  "// targets": "to see all targets run: nx show project shared-supabase-db --web",
+  "targets": {}
+}

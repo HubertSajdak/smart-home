@@ -13,6 +13,10 @@
             "allow": [],
             "depConstraints": [
               {
+                "sourceTag": "type:db",
+                "onlyDependOnLibsWithTags": ["type:db"]
+              },
+              {
                 "sourceTag": "type:theme",
                 "onlyDependOnLibsWithTags": ["type:theme"]
               },
@@ -22,7 +26,7 @@
               },
               {
                 "sourceTag": "type:data-access",
-                "onlyDependOnLibsWithTags": ["type:theme", "type:utils", "type:data-access"]
+                "onlyDependOnLibsWithTags": ["type:theme", "type:utils", "type:data-access", "type:db"]
               },
               {
                 "sourceTag": "type:ui",
@@ -131,7 +135,12 @@
             }
           }
         ],
-        "@typescript-eslint/no-unused-vars": ["warn", { "ignoreRestSiblings": true }],
+        "@typescript-eslint/no-unused-vars": [
+          "warn",
+          {
+            "ignoreRestSiblings": true
+          }
+        ],
         "no-else-return": "error",
         "unicorn/new-for-builtins": "error",
         "unicorn/prefer-switch": "error",
