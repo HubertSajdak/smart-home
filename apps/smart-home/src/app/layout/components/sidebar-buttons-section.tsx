@@ -10,7 +10,7 @@ const SidebarButtonsSection = () => {
   return (
     <StyledSidebarButtonsSection>
       {isDesktop && <IconButton color="primary.main" icon={<BellIcon />} onClick={() => console.log('elo')} />}
-      <IconButton color="primary.main" icon={<PowerIcon />} onClick={() => console.log('elo')} />
+      <IconButton color="primary.main" icon={<PowerIcon />} onClick={() => console.log('test')} />
     </StyledSidebarButtonsSection>
   );
 };

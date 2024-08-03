@@ -6,8 +6,10 @@ export const StyledRoomInput = styled.div(({ theme }) => ({
   paddingBottom: theme.spacing(0.5),
   fontWeight: theme.typography.fontWeight.light,
   marginBottom: theme.spacing(1),
-  zIndex: 2,
   height: '48px',
+  a: {
+    zIndex: 100,
+  },
   div: {
     height: '48px',
     display: 'grid',

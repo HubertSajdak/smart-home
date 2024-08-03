@@ -26,7 +26,7 @@ export const StyledNavItem = styled.div(({ theme }) => ({
       left: theme.spacing(-2.25),
       width: `calc(100% + ${theme.spacing(4.5)})`,
       height: '100%',
-      zIndex: -1,
+      zIndex: 1,
     },
   },
 }));

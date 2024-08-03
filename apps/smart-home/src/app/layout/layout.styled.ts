@@ -17,10 +17,6 @@ export const StyledLayoutContentWrapper = styled.main(({ theme }) => ({
   flexDirection: 'column',
 }));
 export const StyledLayoutSidebarWrapper = styled.div<{ $isSidebarOpen: boolean }>(({ $isSidebarOpen, theme }) => ({
-  display: 'grid',
-  gridTemplateRows: '1fr',
-  gap: theme.spacing(3.75),
-  padding: theme.spacing(3.75),
   backgroundColor: theme.palette.primary.light,
   '@media (max-width:1440px)': {
     position: 'fixed',
@@ -28,7 +24,7 @@ export const StyledLayoutSidebarWrapper = styled.div<{ $isSidebarOpen: boolean }
     right: 0,
     height: '100vh',
     width: '360px',
-    marginRight: $isSidebarOpen ? 0 : '-360px',
+    marginRight: $isSidebarOpen ? 0 : '-110%',
   },
   '@media (max-width:965px)': {
     width: '100%',
