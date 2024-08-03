@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledSidebar = styled.aside(({ theme }) => ({
+export const StyledSidebar = styled.aside(() => ({
   gap: '30px',
   display: 'flex',
   flexDirection: 'column',
