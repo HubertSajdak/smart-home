@@ -1,0 +1,9 @@
+export { default as Add } from './add';
+export { default as Bell } from './bell';
+export { default as BurgerMenu } from './burger-menu';
+export { default as Close } from './close';
+export { default as Done } from './done';
+export { default as GridView } from './grid-view';
+export { default as HomeHealth } from './home-health';
+export { default as Power } from './power';
+export { default as Settings } from './settings';

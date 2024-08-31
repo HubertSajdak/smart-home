@@ -1,10 +1,23 @@
 {
   "root": true,
-  "ignorePatterns": ["**/*"],
-  "plugins": ["@nx", "unicorn", "simple-import-sort", "prettier", "react-hooks"],
+  "ignorePatterns": [
+    "**/*"
+  ],
+  "plugins": [
+    "@nx",
+    "unicorn",
+    "simple-import-sort",
+    "prettier",
+    "react-hooks"
+  ],
   "overrides": [
     {
-      "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
+      "files": [
+        "*.ts",
+        "*.tsx",
+        "*.js",
+        "*.jsx"
+      ],
       "rules": {
         "@nx/enforce-module-boundaries": [
           "error",
@@ -14,39 +27,71 @@
             "depConstraints": [
               {
                 "sourceTag": "type:db",
-                "onlyDependOnLibsWithTags": ["type:db"]
+                "onlyDependOnLibsWithTags": [
+                  "type:db"
+                ]
               },
               {
                 "sourceTag": "type:theme",
-                "onlyDependOnLibsWithTags": ["type:theme"]
+                "onlyDependOnLibsWithTags": [
+                  "type:theme"
+                ]
               },
               {
                 "sourceTag": "type:utils",
-                "onlyDependOnLibsWithTags": ["type:theme", "type:utils"]
+                "onlyDependOnLibsWithTags": [
+                  "type:theme",
+                  "type:utils"
+                ]
               },
               {
                 "sourceTag": "type:data-access",
-                "onlyDependOnLibsWithTags": ["type:theme", "type:utils", "type:data-access", "type:db"]
+                "onlyDependOnLibsWithTags": [
+                  "type:theme",
+                  "type:utils",
+                  "type:db"
+                ]
               },
               {
                 "sourceTag": "type:ui",
-                "onlyDependOnLibsWithTags": ["type:theme", "type:utils", "type:data-access", "type:ui"]
+                "onlyDependOnLibsWithTags": [
+                  "type:theme",
+                  "type:utils",
+                  "type:data-access",
+                  "type:ui"
+                ]
               },
               {
                 "sourceTag": "type:feature",
-                "onlyDependOnLibsWithTags": ["type:theme", "type:utils", "type:data-access", "type:ui", "type:feature"]
+                "onlyDependOnLibsWithTags": [
+                  "type:theme",
+                  "type:utils",
+                  "type:data-access",
+                  "type:ui"
+                ]
               },
               {
                 "sourceTag": "type:app",
-                "onlyDependOnLibsWithTags": ["type:theme", "type:utils", "type:data-access", "type:ui", "type:feature"]
+                "onlyDependOnLibsWithTags": [
+                  "type:theme",
+                  "type:utils",
+                  "type:data-access",
+                  "type:ui",
+                  "type:feature"
+                ]
               },
               {
                 "sourceTag": "domain:shared",
-                "onlyDependOnLibsWithTags": ["domain:shared"]
+                "onlyDependOnLibsWithTags": [
+                  "domain:shared"
+                ]
               },
               {
                 "sourceTag": "domain:device",
-                "onlyDependOnLibsWithTags": ["domain:device", "domain:shared"]
+                "onlyDependOnLibsWithTags": [
+                  "domain:device",
+                  "domain:shared"
+                ]
               }
             ]
           }
@@ -90,7 +135,9 @@
           "error",
           {
             "selector": "interface",
-            "format": ["PascalCase"],
+            "format": [
+              "PascalCase"
+            ],
             "custom": {
               "regex": "^I[A-Z]",
               "match": true
@@ -100,7 +147,9 @@
           },
           {
             "selector": "typeAlias",
-            "format": ["PascalCase"],
+            "format": [
+              "PascalCase"
+            ],
             "custom": {
               "regex": "^T[A-Z]",
               "match": true
@@ -110,18 +159,27 @@
           },
           {
             "selector": "variable",
-            "format": ["strictCamelCase", "StrictPascalCase", "UPPER_CASE"],
+            "format": [
+              "strictCamelCase",
+              "StrictPascalCase",
+              "UPPER_CASE"
+            ],
             "leadingUnderscore": "forbid",
             "trailingUnderscore": "forbid"
           },
           {
             "selector": "enum",
-            "format": ["UPPER_CASE"],
+            "format": [
+              "UPPER_CASE"
+            ],
             "leadingUnderscore": "forbid",
             "trailingUnderscore": "forbid"
           }
         ],
-        "@typescript-eslint/semi": ["error", "always"],
+        "@typescript-eslint/semi": [
+          "error",
+          "always"
+        ],
         "@typescript-eslint/member-delimiter-style": [
           "error",
           {
@@ -153,7 +211,10 @@
       }
     },
     {
-      "files": ["*.ts", "*.tsx"],
+      "files": [
+        "*.ts",
+        "*.tsx"
+      ],
       "extends": [
         "plugin:@nx/typescript",
         "eslint:recommended",
@@ -163,8 +224,13 @@
       "rules": {}
     },
     {
-      "files": ["*.js", "*.jsx"],
-      "extends": ["plugin:@nx/javascript"],
+      "files": [
+        "*.js",
+        "*.jsx"
+      ],
+      "extends": [
+        "plugin:@nx/javascript"
+      ],
       "rules": {}
     }
   ]

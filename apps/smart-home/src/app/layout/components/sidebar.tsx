@@ -1,5 +1,5 @@
 import { DeviceUiRoomList } from '@smart-home/device/ui-room-list';
-import { Typography } from '@smart-home/shared/ui/typography';
+import { Typography } from '@smart-home/shared/ui';
 import React from 'react';
 
 import { StyledNavigation, StyledSidebar, StyledTitle } from './sidebar.styled';

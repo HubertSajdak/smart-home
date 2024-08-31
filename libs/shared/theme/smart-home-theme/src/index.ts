@@ -1,2 +1,4 @@
 export { default as ThemeProvider } from './lib/theme-provider';
-export * from './lib/global-styles';
+export { GlobalStyles } from './lib/global-styles';
+export { useMediaQuery } from './lib/use-media-query';
+export { Icon } from './lib/icon';

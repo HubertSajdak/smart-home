@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
-export const StyledLayout = styled.div(() => ({
+export const StyledLayout = styled.div(({ theme }) => ({
   display: 'grid',
   gridTemplateColumns: '276px 1fr',
   gridTemplateRows: '1fr',
   height: '100vh',
-  '@media (max-width:1440px)': {
+  [`@media (max-width:${theme.screen.isDesktop})`]: {
     gridTemplateColumns: '1fr',
   },
 }));
@@ -18,7 +18,7 @@ export const StyledLayoutContentWrapper = styled.main(({ theme }) => ({
 }));
 export const StyledLayoutSidebarWrapper = styled.div<{ $isSidebarOpen: boolean }>(({ $isSidebarOpen, theme }) => ({
   backgroundColor: theme.palette.primary.light,
-  '@media (max-width:1440px)': {
+  [`@media (max-width:${theme.screen.isDesktop})`]: {
     position: 'fixed',
     top: 0,
     right: 0,
@@ -26,7 +26,7 @@ export const StyledLayoutSidebarWrapper = styled.div<{ $isSidebarOpen: boolean }
     width: '360px',
     marginRight: $isSidebarOpen ? 0 : '-110%',
   },
-  '@media (max-width:965px)': {
+  [`@media (max-width:${theme.screen.isTablet})`]: {
     width: '100%',
     marginRight: $isSidebarOpen ? 0 : '-110%',
   },

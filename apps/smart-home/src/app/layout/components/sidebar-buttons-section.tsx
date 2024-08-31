@@ -1,6 +1,5 @@
-import { BellIcon, PowerIcon } from '@smart-home/shared/assets';
-import { IconButton } from '@smart-home/shared/ui/icon-button';
-import { useMediaQuery } from '@smart-home/shared/utils/hooks';
+import { Icon, useMediaQuery } from '@smart-home/shared/theme/smart-home-theme';
+import { IconButton } from '@smart-home/shared/ui';
 import React from 'react';
 
 import { StyledSidebarButtonsSection } from './sidebar-buttons-section.styled';
@@ -9,8 +8,10 @@ const SidebarButtonsSection = () => {
   const isDesktop = useMediaQuery('desktopSize');
   return (
     <StyledSidebarButtonsSection>
-      {isDesktop && <IconButton color="primary.main" icon={<BellIcon />} onClick={() => console.log('elo')} />}
-      <IconButton color="primary.main" icon={<PowerIcon />} onClick={() => console.log('test')} />
+      {isDesktop && (
+        <IconButton color="primary.main" icon={<Icon name={'Bell'} />} onClick={() => console.log('elo')} />
+      )}
+      <IconButton color="primary.main" icon={<Icon name={'Power'} />} onClick={() => console.log('test')} />
     </StyledSidebarButtonsSection>
   );
 };
