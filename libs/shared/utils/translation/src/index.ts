@@ -1,1 +1,1 @@
-export { setupI18n } from './lib/setupI18n';
+export { setupI18n } from './lib/setup-I18n';
