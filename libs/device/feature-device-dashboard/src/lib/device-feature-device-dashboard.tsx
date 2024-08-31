@@ -4,8 +4,8 @@ const StyledDeviceFeatureDeviceDashboard = styled.div`
   color: pink;
 `;
 
-export function DeviceFeatureDeviceDashboard() {
-  return <StyledDeviceFeatureDeviceDashboard></StyledDeviceFeatureDeviceDashboard>;
+function DeviceFeatureDeviceDashboard() {
+  return <StyledDeviceFeatureDeviceDashboard>Main Content</StyledDeviceFeatureDeviceDashboard>;
 }
 
 export default DeviceFeatureDeviceDashboard;

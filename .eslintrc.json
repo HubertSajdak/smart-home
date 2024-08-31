@@ -26,7 +26,7 @@
               },
               {
                 "sourceTag": "type:data-access",
-                "onlyDependOnLibsWithTags": ["type:theme", "type:utils", "type:data-access", "type:db"]
+                "onlyDependOnLibsWithTags": ["type:theme", "type:utils", "type:db"]
               },
               {
                 "sourceTag": "type:ui",
@@ -34,7 +34,7 @@
               },
               {
                 "sourceTag": "type:feature",
-                "onlyDependOnLibsWithTags": ["type:theme", "type:utils", "type:data-access", "type:ui", "type:feature"]
+                "onlyDependOnLibsWithTags": ["type:theme", "type:utils", "type:data-access", "type:ui"]
               },
               {
                 "sourceTag": "type:app",

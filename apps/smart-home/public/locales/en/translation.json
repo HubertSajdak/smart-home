@@ -1,0 +1,9 @@
+{
+  "navigation": {
+    "settings": "settings",
+    "dashboard": "dashboard"
+  },
+  "roomList": {
+    "rooms": "rooms"
+  }
+}

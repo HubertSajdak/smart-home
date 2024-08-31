@@ -11,17 +11,10 @@ export const StyledRoomInput = styled.div(({ theme }) => ({
     zIndex: 100,
   },
   div: {
-    height: '48px',
-    display: 'grid',
-    gridTemplateColumns: '16px 140px 16px',
+    display: 'flex',
     alignItems: 'center',
+    justifyContent: 'flex-start',
     gap: theme.spacing(2.5),
-    '@media (max-width:1440px)': {
-      gridTemplateColumns: '16px 220px 16px',
-    },
-    '@media (max-width:965px)': {
-      gridTemplateColumns: '16px auto 16px',
-    },
   },
   color: theme.palette.common.white,
   input: {
@@ -29,11 +22,12 @@ export const StyledRoomInput = styled.div(({ theme }) => ({
     backgroundColor: 'transparent',
     color: theme.palette.common.white,
     outline: 'none',
+    height: '48px',
     width: '120px',
-    '@media (max-width:1440px)': {
-      width: '220px',
+    [`@media (max-width:${theme.screen.isDesktop})`]: {
+      width: '100%',
     },
-    '@media (max-width:965px)': {
+    [`@media (max-width:${theme.screen.isTablet})`]: {
       width: '100%',
     },
   },

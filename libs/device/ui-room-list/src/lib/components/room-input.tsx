@@ -1,8 +1,7 @@
 import { Input, InputProps } from '@mui/base/Input';
-import { DoneIcon, GridViewIcon } from '@smart-home/shared/assets';
-import { NavLink } from '@smart-home/shared/ui/nav-link';
+import { Icon, useMediaQuery } from '@smart-home/shared/theme/smart-home-theme';
+import { NavLink } from '@smart-home/shared/ui';
 import { truncateString } from '@smart-home/shared/utils/functions';
-import { useMediaQuery } from '@smart-home/shared/utils/hooks';
 import { routes } from '@smart-home/shared/utils/routes';
 import React, { useState } from 'react';
 
@@ -11,15 +10,21 @@ import { StyledRoomInput } from './room-input.styled';
 type TRoomInputProps = {
   label: string;
   roomId: number;
-  onEditRoom: (id: number, label: string) => Promise<void>;
+  onEditRoom: ({ id, label }: { id: number; label: string }) => void;
 } & InputProps;
 
 const RoomInput = ({ label, roomId, onEditRoom, ...rest }: TRoomInputProps) => {
   const [isEditing, setIsEditing] = useState(false);
   const [roomLabel, setRoomLabel] = useState('');
   const isTablet = useMediaQuery('tabletSize');
-  const truncateNumber = isTablet ? 22 : 16;
-
+  const shortenNavLinkTitle = isTablet ? 22 : 16;
+  const onInputBlur = () => {
+    onEditRoom({ id: roomId, label: roomLabel });
+    setIsEditing(false);
+  };
+  const onInputFocus = () => setIsEditing(true);
+  const onInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => setRoomLabel(e.target.value);
+  const onDoneIconClick = () => setIsEditing(false);
   return (
     <StyledRoomInput
       onDoubleClick={() => {
@@ -28,31 +33,25 @@ const RoomInput = ({ label, roomId, onEditRoom, ...rest }: TRoomInputProps) => {
     >
       {isEditing ? (
         <div>
-          <GridViewIcon />
+          <Icon name={'GridView'} />
           <Input
             defaultValue={label}
             {...rest}
             autoFocus={true}
-            onBlur={async () => {
-              await onEditRoom(roomId, roomLabel);
-              setIsEditing(false);
-            }}
-            onFocus={() => setIsEditing(true)}
+            onBlur={onInputBlur}
+            onFocus={onInputFocus}
             placeholder={'Enter name'}
-            onChange={(e) => setRoomLabel(e.target.value)}
+            onChange={onInputChange}
+            value={roomLabel}
           />
-          <div
-            onClick={async () => {
-              setIsEditing(false);
-            }}
-          >
-            <DoneIcon />
+          <div onClick={onDoneIconClick}>
+            <Icon name={'Done'} />
           </div>
         </div>
       ) : (
         <NavLink
-          label={truncateString(label, truncateNumber)}
-          icon={<GridViewIcon />}
+          label={truncateString(label, shortenNavLinkTitle)}
+          icon={<Icon name={'GridView'} />}
           path={routes.room.path(roomId)}
         />
       )}

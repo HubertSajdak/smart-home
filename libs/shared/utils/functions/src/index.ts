@@ -1,1 +1,1 @@
-export * from './lib/shared-utils-functions';
+export { truncateString, formatTranslationKey } from './lib/shared-utils-functions';

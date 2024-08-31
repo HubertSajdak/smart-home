@@ -1,1 +1,1 @@
-export * from './lib/shared-supabase-db';
+export { setupSupabase } from './lib/shared-supabase-db';
