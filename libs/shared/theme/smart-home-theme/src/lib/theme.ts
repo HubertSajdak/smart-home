@@ -15,6 +15,9 @@ interface IDarkTheme {
       black: string;
       white: string;
     };
+    grey: {
+      30: string;
+    };
   };
   typography: {
     fontSize: {
@@ -81,6 +84,9 @@ export const darkTheme: IDarkTheme = {
     common: {
       black: '#151618',
       white: '#FFFFFF',
+    },
+    grey: {
+      30: '#6464644C',
     },
   },
   typography: {

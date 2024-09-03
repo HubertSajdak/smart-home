@@ -4,6 +4,8 @@ export const StyledSidebar = styled.aside(({ theme }) => ({
   gap: theme.spacing(3.75),
   display: 'flex',
   flexDirection: 'column',
+  justifyContent: 'flex-start',
+  height: '100%',
   maxHeight: '100vh',
 }));
 export const StyledTitle = styled.div(({ theme }) => ({
@@ -12,6 +14,9 @@ export const StyledTitle = styled.div(({ theme }) => ({
   fontSize: theme.typography.fontSize.large,
   padding: theme.spacing(4),
   paddingBottom: 0,
+  [`@media (max-width: ${theme.screen.isDesktop})`]: {
+    display: 'flex',
+  },
 }));
 export const StyledNavigation = styled.div(({ theme }) => ({
   overflowY: 'auto',

@@ -7,4 +7,5 @@ export const StyledSidebarButtonsSection = styled.div`
   height: 100px;
   gap: ${({ theme }) => theme.spacing(2)};
   padding-bottom: ${({ theme }) => theme.spacing(4)};
+  margin-top: auto;
 `;
