@@ -1,32 +1,24 @@
-import { Icon, useMediaQuery } from '@smart-home/shared/theme/smart-home-theme';
-import { IconButton } from '@smart-home/shared/ui';
+import { useMediaQuery } from '@smart-home/shared/theme/smart-home-theme';
 import React, { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 
+import MobileBurgerMenu from './components/mobile-burger-menu';
 import Sidebar from './components/sidebar';
 import { StyledLayout, StyledLayoutContentWrapper, StyledLayoutSidebarWrapper } from './layout.styled';
 
 const Layout = () => {
   const isDesktop = useMediaQuery('desktopSize');
   const [isOpen, setIsOpen] = useState(false);
+  const handleSidebarOpen = () => setIsOpen((prev) => !prev);
   return (
     <StyledLayout>
       <StyledLayoutSidebarWrapper $isSidebarOpen={isOpen}>
-        <Sidebar />
+        <Sidebar isSidebarOpen={isOpen} onSidebarOpen={handleSidebarOpen} />
       </StyledLayoutSidebarWrapper>
       <StyledLayoutContentWrapper>
+        {!isDesktop && <MobileBurgerMenu isSidebarOpen={isOpen} onSidebarOpen={handleSidebarOpen} />}
         <Outlet />
       </StyledLayoutContentWrapper>
-      {!isDesktop && (
-        <div style={{ display: 'flex', gap: '16px', position: 'fixed', top: '24px', right: '24px' }}>
-          <IconButton color="black" icon={<Icon name={'Bell'} />} onClick={() => setIsOpen((prev) => !prev)} />
-          <IconButton
-            color="white"
-            icon={isOpen ? <Icon name={'Close'} /> : <Icon name={'BurgerMenu'} />}
-            onClick={() => setIsOpen((prev) => !prev)}
-          />
-        </div>
-      )}
     </StyledLayout>
   );
 };

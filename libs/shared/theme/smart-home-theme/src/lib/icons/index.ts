@@ -7,3 +7,6 @@ export { default as GridView } from './grid-view';
 export { default as HomeHealth } from './home-health';
 export { default as Power } from './power';
 export { default as Settings } from './settings';
+export { default as ArrowDropDown } from './arrow-drop-down';
+export { default as TableRowsNarrow } from './table-rows-narrow';
+export { default as Window } from './window';
