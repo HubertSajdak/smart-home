@@ -1,11 +1,11 @@
-import styled from 'styled-components';
-
-const StyledDeviceFeatureDeviceDashboard = styled.div`
-  color: pink;
-`;
+import { DeviceUiAppBar } from '@smart-home/device/ui-app-bar';
 
 function DeviceFeatureDeviceDashboard() {
-  return <StyledDeviceFeatureDeviceDashboard>Main Content</StyledDeviceFeatureDeviceDashboard>;
+  return (
+    <>
+      <DeviceUiAppBar />
+    </>
+  );
 }
 
 export default DeviceFeatureDeviceDashboard;

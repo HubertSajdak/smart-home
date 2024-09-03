@@ -12,9 +12,13 @@ export const StyledLayout = styled.div(({ theme }) => ({
 export const StyledLayoutContentWrapper = styled.main(({ theme }) => ({
   backgroundColor: theme.palette.primary.main,
   padding: `${theme.spacing(3.75)} ${theme.spacing(8.75)}`,
-  gap: theme.spacing(5.75),
   display: 'flex',
   flexDirection: 'column',
+  height: '100vh',
+  [`@media (max-width:${theme.screen.isTablet})`]: {
+    gap: theme.spacing(3),
+    padding: `${theme.spacing(2)} ${theme.spacing(2)}`,
+  },
 }));
 export const StyledLayoutSidebarWrapper = styled.div<{ $isSidebarOpen: boolean }>(({ $isSidebarOpen, theme }) => ({
   backgroundColor: theme.palette.primary.light,

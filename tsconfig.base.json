@@ -18,6 +18,7 @@
       "@smart-home/device/data-access-device": ["libs/device/data-access-device/src/index.ts"],
       "@smart-home/device/data-access-room-list": ["libs/device/data-access-room-list/src/index.ts"],
       "@smart-home/device/feature-device-dashboard": ["libs/device/feature-device-dashboard/src/index.ts"],
+      "@smart-home/device/ui-app-bar": ["libs/device/ui-app-bar/src/index.ts"],
       "@smart-home/device/ui-device-list": ["libs/device/ui-device-list/src/index.ts"],
       "@smart-home/device/ui-room-list": ["libs/device/ui-room-list/src/index.ts"],
       "@smart-home/shared/supabase/db": ["libs/shared/supabase/db/src/index.ts"],
