@@ -4,11 +4,11 @@ import { StyledBody, StyledBodyBold, StyledHeaderL, StyledHeaderM, StyledHeaderS
 
 interface ITypographyProps {
   variant?: 'body' | 'bodyBold' | 'headerS' | 'headerM';
-  color?: 'white' | 'black' | 'grey';
+  color?: 'light' | 'dark' | 'grey';
   children: ReactNode;
 }
 
-export function Typography({ variant, children, color = 'white' }: ITypographyProps) {
+export function Typography({ variant, children, color = 'light' }: ITypographyProps) {
   if (variant === 'body') {
     return <StyledBody $color={color}>{children}</StyledBody>;
   }
@@ -19,10 +19,10 @@ export function Typography({ variant, children, color = 'white' }: ITypographyPr
     return <StyledHeaderS $color={color}>{children}</StyledHeaderS>;
   }
   if (variant === 'headerM') {
-    return <StyledHeaderM color={color}>{children}</StyledHeaderM>;
+    return <StyledHeaderM $color={color}>{children}</StyledHeaderM>;
   }
   if (variant === 'headerL') {
-    return <StyledHeaderL color={color}>{children}</StyledHeaderL>;
+    return <StyledHeaderL $color={color}>{children}</StyledHeaderL>;
   }
 
   return <p>{children}</p>;
