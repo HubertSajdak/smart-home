@@ -3,10 +3,7 @@
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/device/data-access-device-list/src",
   "projectType": "library",
-  "tags": [
-    "type:data-access",
-    "scope:device"
-  ],
+  "tags": ["type:data-access", "scope:device"],
   "// targets": "to see all targets run: nx show project device-data-access-device-list --web",
   "targets": {}
 }
