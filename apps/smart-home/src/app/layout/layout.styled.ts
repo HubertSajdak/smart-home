@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledLayout = styled.div(({ theme }) => ({
+export const StyledLayout = styled.div(() => ({
   display: 'flex',
 }));
 export const StyledLayoutContentWrapper = styled.main(({ theme }) => ({

@@ -13,7 +13,7 @@ interface IDeviceCardProps {
   isOn: boolean;
 }
 
-const DeviceCard = ({ id, deviceType, deviceName, isOn }: IDeviceCardProps) => {
+const DeviceCard = ({ deviceType, deviceName, isOn }: IDeviceCardProps) => {
   const theme = useTheme();
   const deviceIconMapping = (deviceTypeId: number) => {
     if (deviceTypeId === 0) {

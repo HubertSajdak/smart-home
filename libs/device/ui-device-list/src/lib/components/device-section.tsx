@@ -1,7 +1,7 @@
+import { IDevicesByRoomDto } from '@smart-home/device/data-access-device-list';
 import { Typography } from '@smart-home/shared/ui';
 import React from 'react';
 
-import { IDevicesByRoomDto } from '../../../../data-access-device-list/src/lib/all-devices-by-room-dto';
 import DeviceCard from './device-card';
 import { StyledDeviceList, StyledDeviceSection } from './device-section.styled';
 
