@@ -18,15 +18,7 @@ const chipFilterConfig = [
   },
   {
     id: 4,
-    label: 'Security',
-  },
-  {
-    id: 5,
-    label: 'Media device',
-  },
-  {
-    id: 6,
-    label: 'Lights',
+    label: 'Temperature',
   },
 ];
 const ChipFilterList = () => {

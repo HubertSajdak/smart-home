@@ -18,6 +18,12 @@ interface IDarkTheme {
     grey: {
       30: string;
     };
+    device: {
+      light: '#FFED48';
+      security: '#825DFF';
+      media: '#007BFF';
+      temperature: '#00FEB6';
+    };
   };
   typography: {
     fontSize: {
@@ -86,7 +92,13 @@ export const darkTheme: IDarkTheme = {
       white: '#FFFFFF',
     },
     grey: {
-      30: '#6464644C',
+      30: '#3e4546',
+    },
+    device: {
+      light: '#FFED48',
+      security: '#825DFF',
+      media: '#007BFF',
+      temperature: '#00FEB6',
     },
   },
   typography: {

@@ -1,6 +1,7 @@
 import { Select, SelectRootSlotProps } from '@mui/base';
 import { Icon } from '@smart-home/shared/theme/smart-home-theme';
 import React from 'react';
+import { useTheme } from 'styled-components';
 
 import { StyledButton, StyledDivIcon, StyledListbox, StyledOption, StyledPopup } from './dropdown-filter.styled';
 
@@ -31,11 +32,12 @@ const CustomButton = React.forwardRef(function CustomButton<
   Multiple extends boolean,
 >(props: SelectRootSlotProps<TValue, Multiple>, ref: React.ForwardedRef<HTMLButtonElement>) {
   const { ownerState, ...other } = props;
+  const theme = useTheme();
   return (
     <StyledButton type="button" {...other} ref={ref}>
       <span>{other.children}</span>
       <StyledDivIcon>
-        <Icon height={10} width={10} name={'ArrowDropDown'} />
+        <Icon height={10} width={10} name={'ArrowDropDown'} color={theme.palette.common.white} />
       </StyledDivIcon>
     </StyledButton>
   );
