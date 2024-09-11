@@ -10,3 +10,6 @@ export { default as Settings } from './settings';
 export { default as ArrowDropDown } from './arrow-drop-down';
 export { default as TableRowsNarrow } from './table-rows-narrow';
 export { default as Window } from './window';
+export { default as Monitor } from './monitor';
+export { default as Wifi } from './wifi';
+export { default as LightBulb } from './light-bulb';

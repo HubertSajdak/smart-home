@@ -12,10 +12,6 @@ export const StyledTab = styled(BaseTab)`
   justify-content: center;
   align-items: center;
 
-  &:hover {
-    background-color: ${({ theme }) => theme.palette.grey[30]};
-    color: ${({ theme }) => theme.palette.common.white};
-  }
 
   &:focus {
     color: ${({ theme }) => theme.palette.common.white};

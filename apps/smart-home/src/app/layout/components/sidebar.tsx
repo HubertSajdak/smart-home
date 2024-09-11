@@ -18,7 +18,9 @@ const Sidebar = ({ isSidebarOpen, onSidebarOpen }: ISidebarProps) => {
   return (
     <StyledSidebar>
       <StyledTitle>
-        <Typography variant="headerM">Home</Typography>
+        <Typography color={'light'} variant="headerM">
+          Home
+        </Typography>
         {!isDesktop && <MobileBurgerMenu isSidebarOpen={isSidebarOpen} onSidebarOpen={onSidebarOpen} />}
       </StyledTitle>
       <SidebarNavigationList />

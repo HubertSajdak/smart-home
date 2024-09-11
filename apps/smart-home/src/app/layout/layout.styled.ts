@@ -1,27 +1,26 @@
 import styled from 'styled-components';
 
-export const StyledLayout = styled.div(({ theme }) => ({
-  display: 'grid',
-  gridTemplateColumns: '276px 1fr',
-  gridTemplateRows: '1fr',
-  height: '100vh',
-  [`@media (max-width:${theme.screen.isDesktop})`]: {
-    gridTemplateColumns: '1fr',
-  },
+export const StyledLayout = styled.div(() => ({
+  display: 'flex',
 }));
 export const StyledLayoutContentWrapper = styled.main(({ theme }) => ({
-  backgroundColor: theme.palette.primary.main,
-  padding: `${theme.spacing(3.75)} ${theme.spacing(8.75)}`,
   display: 'flex',
   flexDirection: 'column',
-  height: '100vh',
-  [`@media (max-width:${theme.screen.isTablet})`]: {
-    gap: theme.spacing(3),
-    padding: `${theme.spacing(2)} ${theme.spacing(2)}`,
+  backgroundColor: theme.palette.primary.main,
+  marginLeft: '287px',
+  width: '100vw',
+  minHeight: '100vh',
+  padding: `${theme.spacing(3.75)} ${theme.spacing(8.75)}`,
+  [`@media (max-width:${theme.screen.isDesktop})`]: {
+    marginLeft: '0',
+    padding: `${theme.spacing(3.75)} ${theme.spacing(2)}`,
   },
 }));
 export const StyledLayoutSidebarWrapper = styled.div<{ $isSidebarOpen: boolean }>(({ $isSidebarOpen, theme }) => ({
   backgroundColor: theme.palette.primary.light,
+  position: 'fixed',
+  width: '287px',
+  height: '100vh',
   [`@media (max-width:${theme.screen.isDesktop})`]: {
     position: 'fixed',
     top: 0,

@@ -1,13 +1,20 @@
-import styled from 'styled-components';
+import { useGetAllDevicesByRoom } from '@smart-home/device/data-access-device-list';
+import { useEffect } from 'react';
 
-const StyledDeviceUiDeviceList = styled.div`
-  color: pink;
-`;
+import DeviceSection from './components/device-section';
+import { StyledDeviceUiDeviceList } from './components/device-ui-device-list.styled';
 
 function DeviceUiDeviceList() {
+  const { data } = useGetAllDevicesByRoom();
+  useEffect(() => {
+    console.log(data);
+  }, [data]);
   return (
     <StyledDeviceUiDeviceList>
-      <h1>Welcome to DeviceUiDeviceList!</h1>
+      {data &&
+        data.map(({ id, label, allDevices }) => (
+          <DeviceSection key={id} id={id} label={label} allDevices={allDevices} />
+        ))}
     </StyledDeviceUiDeviceList>
   );
 }
