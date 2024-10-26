@@ -1,43 +1,40 @@
+interface IDeviceConfig {
+  light_color?: string;
+  temperature?: number;
+  channel?: number;
+}
+
 interface IDevice {
   id: number;
   is_on: boolean;
   device_name: string;
-  device_type: number;
+  device_type_id: number;
+  device_config: IDeviceConfig | null;
+  room_assignment_id: number;
 }
 
 interface IDeviceDto {
   id: number;
   isOn: boolean;
   deviceName: string;
-  deviceType: number;
+  deviceTypeId: number;
+  deviceConfig: IDeviceConfig | null;
+  roomAssignmentId: number;
 }
 
-interface IDevicesByRoom {
-  id: number;
-  label: string;
-  all_devices: IDevice[] | [];
-}
-
-interface IDevicesByRoomDto {
-  id: number;
-  label: string;
-  allDevices: IDeviceDto[] | [] | null;
-}
-
-export const allDevicesByRoomDto = (data: IDevicesByRoom[] | null): IDevicesByRoomDto[] | null =>
-  data &&
-  data.map((el) => {
-    return {
-      id: el.id,
-      label: el.label,
-      allDevices: el.all_devices.map((device) => {
-        return {
-          id: device.id,
-          deviceType: device.device_type,
-          deviceName: device.device_name,
-          isOn: device.is_on,
-        };
-      }),
-    };
-  });
-export type { IDevicesByRoom, IDevicesByRoomDto };
+export const allDevicesDto = (data: IDevice[] | null): IDeviceDto[] | null => {
+  return (
+    data &&
+    data.map((device) => {
+      return {
+        id: device.id,
+        deviceTypeId: device.device_type_id,
+        deviceName: device.device_name,
+        deviceConfig: device.device_config,
+        roomAssignmentId: device.room_assignment_id,
+        isOn: device.is_on,
+      };
+    })
+  );
+};
+export type { IDevice, IDeviceDto };

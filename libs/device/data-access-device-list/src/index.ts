@@ -1,2 +1,2 @@
-export { useGetAllDevicesByRoom } from './lib/device-data-access-device-list';
-export type { IDevicesByRoom, IDevicesByRoomDto } from './lib/all-devices-by-room-dto';
+export { useGetAllDevices, getAllDevice, useGetAllDeviceTypes } from './lib/device-data-access-device-list';
+export type { IDevice, IDeviceDto } from './lib/all-devices-by-room-dto';

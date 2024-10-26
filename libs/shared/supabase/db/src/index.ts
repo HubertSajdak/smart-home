@@ -1,1 +1,1 @@
-export { setupSupabase } from './lib/shared-supabase-db';
+export { supabaseSmartHome } from './lib/shared-supabase-db';

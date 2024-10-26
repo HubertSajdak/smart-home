@@ -1,3 +1,5 @@
+import { useGetAllDeviceTypes } from '@smart-home/device/data-access-device-list';
+import { useDeviceStore } from '@smart-home/shared/utils/store';
 import React from 'react';
 
 import Chip from './chip';
@@ -22,11 +24,27 @@ const chipFilterConfig = [
   },
 ];
 const ChipFilterList = () => {
+  const { data: allDeviceTypes } = useGetAllDeviceTypes();
+  const {
+    updateDeviceTypeIdParam,
+    queryParams: { deviceTypeId },
+  } = useDeviceStore();
+  const changeDeviceTypeQuery = async (deviceTypeId?: number) => {
+    updateDeviceTypeIdParam(deviceTypeId);
+  };
   return (
     <StyledChipFilterList>
-      {chipFilterConfig.map((el) => {
-        return <Chip key={el.id} label={el.label} />;
-      })}
+      {allDeviceTypes &&
+        allDeviceTypes.map((el) => {
+          return (
+            <Chip
+              key={el.id}
+              label={el.type}
+              isActive={deviceTypeId === el.id}
+              onClick={() => changeDeviceTypeQuery(el.id)}
+            />
+          );
+        })}
     </StyledChipFilterList>
   );
 };

@@ -2,9 +2,15 @@ import React from 'react';
 
 import { StyledChip } from './chip.styled';
 
-const Chip = ({ label }: { label: string }) => {
+interface IChipProps {
+  label: string;
+  onClick?: () => void;
+  isActive?: boolean;
+}
+
+const Chip = ({ label, onClick, isActive = false }: IChipProps) => {
   return (
-    <StyledChip>
+    <StyledChip $isActive={isActive} onClick={onClick}>
       <span>{label}</span>
     </StyledChip>
   );
