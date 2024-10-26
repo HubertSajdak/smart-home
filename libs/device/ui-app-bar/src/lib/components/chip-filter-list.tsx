@@ -5,32 +5,14 @@ import React from 'react';
 import Chip from './chip';
 import { StyledChipFilterList } from './chip-filter-list.styled';
 
-const chipFilterConfig = [
-  {
-    id: 0,
-    label: 'Security',
-  },
-  {
-    id: 1,
-    label: 'Media device',
-  },
-  {
-    id: 2,
-    label: 'Lights',
-  },
-  {
-    id: 4,
-    label: 'Temperature',
-  },
-];
 const ChipFilterList = () => {
   const { data: allDeviceTypes } = useGetAllDeviceTypes();
   const {
     updateDeviceTypeIdParam,
     queryParams: { deviceTypeId },
   } = useDeviceStore();
-  const changeDeviceTypeQuery = async (deviceTypeId?: number) => {
-    updateDeviceTypeIdParam(deviceTypeId);
+  const changeDeviceTypeQuery = async (typeId: number) => {
+    updateDeviceTypeIdParam(typeId);
   };
   return (
     <StyledChipFilterList>
