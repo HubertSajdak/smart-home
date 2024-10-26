@@ -1,4 +1,4 @@
-import { Button, Option, optionClasses } from '@mui/base';
+import { Button, Option, optionClasses, Select } from '@mui/base';
 import styled from 'styled-components';
 
 export const StyledButton = styled(Button)`
@@ -66,11 +66,15 @@ export const StyledOption = styled(Option)(
     color: ${theme.palette.text.dark};
   }
 
-
+  text-transform: capitalize
   `
 );
 
 export const StyledPopup = styled('div')`
   z-index: 1;
   min-width: 150px;
+`;
+
+export const StyledSelect = styled(Select)`
+  text-transform: capitalize;
 `;

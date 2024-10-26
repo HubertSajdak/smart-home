@@ -1,11 +1,11 @@
-import { useAddRoom, useGetRooms, useUpdateRoom } from '@smart-home/device/data-access-room-list';
+import { useAddRoom, useGetRoomsNavigationList, useUpdateRoom } from '@smart-home/device/data-access-room-list';
 import React, { useCallback } from 'react';
 
 import AddNewRoom from './components/add-new-room';
 import RoomInput from './components/room-input';
 
 function DeviceUiRoomList() {
-  const { data: rooms } = useGetRooms();
+  const { data: rooms } = useGetRoomsNavigationList();
   const { mutate: addRoomMutation } = useAddRoom();
   const { mutate: editRoomMutation } = useUpdateRoom();
   const createRoom = useCallback(() => {
