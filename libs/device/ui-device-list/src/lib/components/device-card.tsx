@@ -16,9 +16,6 @@ interface IDeviceCardProps {
 const DeviceCard = ({ deviceType, deviceName, isOn }: IDeviceCardProps) => {
   const theme = useTheme();
   const deviceIconMapping = (deviceTypeId: number) => {
-    if (deviceTypeId === 0) {
-      return 'LightBulb';
-    }
     if (deviceTypeId === 1) {
       return 'HomeHealth';
     }
@@ -28,11 +25,11 @@ const DeviceCard = ({ deviceType, deviceName, isOn }: IDeviceCardProps) => {
     if (deviceTypeId === 3) {
       return 'Settings';
     }
+    if (deviceTypeId === 4) {
+      return 'LightBulb';
+    }
   };
   const deviceColorMapping = (deviceTypeId: number) => {
-    if (deviceTypeId === 0) {
-      return theme.palette.device.light;
-    }
     if (deviceTypeId === 1) {
       return theme.palette.device.security;
     }
@@ -41,6 +38,9 @@ const DeviceCard = ({ deviceType, deviceName, isOn }: IDeviceCardProps) => {
     }
     if (deviceTypeId === 3) {
       return theme.palette.device.temperature;
+    }
+    if (deviceTypeId === 4) {
+      return theme.palette.device.light;
     }
   };
   return (

@@ -6,6 +6,7 @@ export const StyledChipFilterList = styled.div`
   gap: ${({ theme }) => theme.spacing(1)};
   padding-bottom: 10px;
   max-width: calc(100vw - 10vw);
+  text-transform: capitalize;
 
   &::-webkit-scrollbar {
     width: 0;

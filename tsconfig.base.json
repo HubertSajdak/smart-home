@@ -28,6 +28,7 @@
       "@smart-home/shared/utils/functions": ["libs/shared/utils/functions/src/index.ts"],
       "@smart-home/shared/utils/react-query": ["libs/shared/utils/react-query/src/index.ts"],
       "@smart-home/shared/utils/routes": ["libs/shared/utils/routes/src/index.ts"],
+      "@smart-home/shared/utils/store": ["libs/shared/utils/store/src/index.ts"],
       "@smart-home/shared/utils/translation": ["libs/shared/utils/translation/src/index.ts"]
     }
   },
