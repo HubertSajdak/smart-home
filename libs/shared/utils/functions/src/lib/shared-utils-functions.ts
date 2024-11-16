@@ -21,7 +21,10 @@ export const deviceIconMapping = (deviceTypeId: number) => {
   }
 };
 
-export const deviceColorMapping = (deviceTypeId: number, theme: DefaultTheme, isOn?: boolean) => {
+export const deviceColorMapping = (deviceTypeId: number, theme: DefaultTheme, isOn: boolean) => {
+  if (!isOn) {
+    return theme.palette.grey[30];
+  }
   if (deviceTypeId === 1) {
     return theme.palette.device.security;
   }
