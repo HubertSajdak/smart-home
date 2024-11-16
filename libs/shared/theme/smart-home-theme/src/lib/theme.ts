@@ -16,6 +16,7 @@ interface IDarkTheme {
       white: string;
     };
     grey: {
+      10: string;
       30: string;
     };
     device: {
@@ -92,6 +93,7 @@ export const darkTheme: IDarkTheme = {
       white: '#FFFFFF',
     },
     grey: {
+      10: '#dde0e0',
       30: '#3e4546',
     },
     device: {

@@ -5,5 +5,22 @@
   },
   "roomList": {
     "rooms": "rooms"
+  },
+  "deviceTypes": {
+    "all": "all",
+    "security": "security",
+    "mediaDevices": "media devices",
+    "temperature": "temperature",
+    "lights": "lights"
+  },
+  "addDeviceForm": {
+    "title": "add device",
+    "selectTypeHeader": "select type",
+    "roomSelectLabel": "assign to the room",
+    "roomSelectPlaceholder": "select room",
+    "addDeviceNameLabel": "device name"
+  },
+  "buttons": {
+    "addDevice": "add device"
   }
 }

@@ -15,5 +15,3 @@ export function IconButton({ onClick, icon, color }: IIconButtonProps) {
     </StyledIconButton>
   );
 }
-
-export default IconButton;
