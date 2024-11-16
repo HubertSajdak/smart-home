@@ -1,6 +1,6 @@
 import { supabaseSmartHome } from '@smart-home/shared/supabase/db';
 import { queryKeysConfig } from '@smart-home/shared/utils/react-query';
-import { useQuery } from '@tanstack/react-query';
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 
 import { allDevicesDto } from './all-devices-by-room-dto';
 
@@ -35,4 +35,50 @@ async function getAllDeviceTypes(): Promise<IDeviceTypes[] | null> {
 
 export function useGetAllDeviceTypes() {
   return useQuery({ queryKey: [queryKeysConfig.alLDeviceTypes.queryKey], queryFn: () => getAllDeviceTypes() });
+}
+
+async function addDevice({
+  deviceName,
+  deviceConfig,
+  deviceTypeId,
+  roomAssignmentId,
+}: {
+  deviceName: string;
+  deviceConfig: null;
+  deviceTypeId: number;
+  roomAssignmentId: number;
+}) {
+  const { error } = await supabaseSmartHome.from(queryKeysConfig.allDevices.relationKey).insert({
+    device_name: deviceName,
+    device_config: deviceConfig,
+    device_type_id: deviceTypeId,
+    room_assignment_id: roomAssignmentId,
+  });
+  return error;
+}
+
+export function useAddDevice() {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: ({
+      deviceName,
+      deviceConfig,
+      deviceTypeId,
+      roomAssignmentId,
+    }: {
+      deviceName: string;
+      deviceConfig: null;
+      deviceTypeId: number;
+      roomAssignmentId: number;
+    }) =>
+      addDevice({
+        deviceName,
+        deviceConfig,
+        deviceTypeId,
+        roomAssignmentId,
+      }),
+    onSuccess: async () => {
+      await queryClient.invalidateQueries({ queryKey: [queryKeysConfig.allDevices.queryKey] });
+    },
+  });
 }

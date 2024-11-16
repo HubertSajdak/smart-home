@@ -4,20 +4,19 @@ import { deviceColorMapping, deviceIconMapping, truncateString } from '@smart-ho
 import React from 'react';
 import { useTheme } from 'styled-components';
 
-import { StyledCardInformation, StyledDeviceCard, StyledIconBackground } from './device-card.styled';
+import { StyledCardInformation, StyledDeviceRow, StyledIconBackground } from './device-row.styled';
 
-interface IDeviceCardProps {
+interface IDeviceRowProps {
   id: number;
   deviceType: number;
   deviceName: string;
   isOn: boolean;
 }
 
-const DeviceCard = ({ deviceType, deviceName, isOn }: IDeviceCardProps) => {
+const DeviceRow = ({ deviceType, deviceName, isOn }: IDeviceRowProps) => {
   const theme = useTheme();
-
   return (
-    <StyledDeviceCard $color={deviceColorMapping(deviceType, theme)}>
+    <StyledDeviceRow $color={deviceColorMapping(deviceType, theme)}>
       <StyledIconBackground>
         {deviceType !== 3 ? (
           <Icon name={deviceIconMapping(deviceType)} />
@@ -29,14 +28,14 @@ const DeviceCard = ({ deviceType, deviceName, isOn }: IDeviceCardProps) => {
       </StyledIconBackground>
       <StyledCardInformation>
         <Typography variant={'bodyBold'} color={'dark'}>
-          {truncateString(deviceName, 15)}
+          {truncateString(deviceName, 60)}
         </Typography>{' '}
-        <Typography variant={'body'} color={'dark'}>
-          {isOn ? 'On' : 'Off'}
-        </Typography>
       </StyledCardInformation>
-    </StyledDeviceCard>
+      <Typography variant={'body'} color={'dark'}>
+        {isOn ? 'On' : 'Off'}
+      </Typography>
+    </StyledDeviceRow>
   );
 };
 
-export default DeviceCard;
+export default DeviceRow;

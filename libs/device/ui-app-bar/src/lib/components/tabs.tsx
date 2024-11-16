@@ -1,5 +1,6 @@
 import { Tabs as MuiTabs } from '@mui/base';
 import { Icon } from '@smart-home/shared/theme/smart-home-theme';
+import { useDeviceStore } from '@smart-home/shared/utils/store';
 import React, { useCallback, useState } from 'react';
 import { useTheme } from 'styled-components';
 
@@ -8,12 +9,14 @@ import { StyledTab, StyledTabsList } from './tabs.styled';
 function Tabs() {
   const theme = useTheme();
   const [activeTab, setActiveTab] = useState<'grid' | 'row'>('grid');
-
+  const { changeDeviceListDisplayType } = useDeviceStore();
   const selectActiveTab = () => {
     if (activeTab === 'grid') {
       setActiveTab('row');
+      changeDeviceListDisplayType('row');
     } else {
       setActiveTab('grid');
+      changeDeviceListDisplayType('grid');
     }
   };
   const IconColor = useCallback(

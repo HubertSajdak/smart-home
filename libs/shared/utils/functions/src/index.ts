@@ -1,1 +1,6 @@
-export { truncateString, formatTranslationKey } from './lib/shared-utils-functions';
+export {
+  truncateString,
+  formatTranslationKey,
+  deviceColorMapping,
+  deviceIconMapping,
+} from './lib/shared-utils-functions';
