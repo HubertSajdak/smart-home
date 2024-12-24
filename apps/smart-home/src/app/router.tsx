@@ -1,4 +1,5 @@
 import { DeviceFeatureDeviceDashboard } from '@smart-home/device/feature-device-dashboard';
+import { DeviceFeatureDeviceRoom } from '@smart-home/device/feature-device-room';
 import { routes } from '@smart-home/shared/utils/routes';
 import { createBrowserRouter } from 'react-router-dom';
 
@@ -16,7 +17,7 @@ export const router = createBrowserRouter([
       },
       {
         path: routes.room.url,
-        element: <DeviceFeatureDeviceDashboard />,
+        element: <DeviceFeatureDeviceRoom />,
       },
     ],
   },

@@ -1,7 +1,7 @@
 import { Button } from '@mui/base';
 import { DefaultTheme, styled } from 'styled-components';
 
-type TIconButtonColor = 'primary.main' | 'primary.light' | 'white' | 'black';
+type TIconButtonColor = 'primary.main' | 'primary.light' | 'white' | 'black' | 'grey';
 
 const getIconButtonBgColor = (color: TIconButtonColor, theme: DefaultTheme) => {
   if (color === 'primary.main') {
@@ -15,6 +15,9 @@ const getIconButtonBgColor = (color: TIconButtonColor, theme: DefaultTheme) => {
   }
   if (color === 'black') {
     return theme.palette.common.black;
+  }
+  if (color === 'grey') {
+    return theme.palette.grey[30];
   }
 };
 

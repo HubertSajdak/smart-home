@@ -9,6 +9,8 @@ export const StyledDeviceCard = styled('div')<{ $color: string }>`
   display: flex;
   flex-direction: column;
   gap: ${({ theme }) => theme.spacing(3)};
+  position: relative;
+  cursor: pointer;
 `;
 
 export const StyledIconBackground = styled('div')`
@@ -21,7 +23,15 @@ export const StyledIconBackground = styled('div')`
   border-radius: 50%;
 `;
 export const StyledCardInformation = styled('div')`
-  display: flex;
+  display: grid;
   flex-direction: column;
   gap: ${({ theme }) => theme.spacing(1)};
+`;
+
+export const StyledOpenDetailsIcon = styled('div')`
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: ${({ theme }) => theme.spacing(2)};
+  cursor: pointer;
 `;

@@ -6,10 +6,12 @@ export const StyledAddDeviceBackground = styled('div')`
   width: 100vw;
   position: fixed;
   top: 0;
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 1;
 `;
 export const StyledAddDeviceModalContent = styled('div')`
   position: relative;
@@ -17,9 +19,10 @@ export const StyledAddDeviceModalContent = styled('div')`
   flex-direction: column;
   align-items: center;
   background-color: ${({ theme }) => theme.palette.primary.light};
-  width: 400px;
+  width: 350px;
   border-radius: ${({ theme }) => theme.spacing(3)};
   padding: ${({ theme }) => theme.spacing(4)};
+  z-index: 1;
 `;
 export const StyledCloseIconContainer = styled('div')`
   position: absolute;

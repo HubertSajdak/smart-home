@@ -1,7 +1,7 @@
 export {
-  useGetAllDevices,
-  getAllDevice,
+  useGetRoomDevices,
   useGetAllDeviceTypes,
   useAddDevice,
+  useUpdateDevicePowerSettings,
 } from './lib/device-data-access-device-list';
-export type { IDevice, IDeviceDto } from './lib/all-devices-by-room-dto';
+export type { IDevice, IDeviceDto, TDeviceSettings } from './lib/all-devices-by-room-dto';

@@ -3,7 +3,7 @@ import { ReactNode } from 'react';
 import { StyledIconButton } from './icon-button.styled';
 
 interface IIconButtonProps {
-  color: 'primary.main' | 'primary.light' | 'white' | 'black';
+  color: 'primary.main' | 'primary.light' | 'white' | 'black' | 'grey';
   icon: ReactNode;
   onClick: () => void;
 }

@@ -11,7 +11,11 @@ import { addDeviceSchema, TAddDeviceFormFields } from '../schema/add-device-sche
 import { StyledDeviceTypeCardContainer, StyledFormContainer, StyledInputContainer } from './add-device-form.styled';
 import SelectDeviceCard from './select-device-card';
 
-const AddDeviceForm = () => {
+interface IAddDeviceFormProps {
+  onSumitModalClose: () => void;
+}
+
+const AddDeviceForm = ({ onSumitModalClose }: IAddDeviceFormProps) => {
   const { t } = useTranslation();
   const { data: rooms } = useGetRooms();
   const { mutate: addDeviceMutation } = useAddDevice();
@@ -51,6 +55,7 @@ const AddDeviceForm = () => {
   };
   const onSubmit: SubmitHandler<TAddDeviceFormFields> = (data) => {
     addDeviceMutation(data);
+    onSumitModalClose();
   };
   return (
     <StyledFormContainer onSubmit={handleSubmit(onSubmit)}>
@@ -83,6 +88,7 @@ const AddDeviceForm = () => {
           render={({ field }) => (
             <Select
               {...field}
+              variant="input"
               placeholder={t('addDeviceForm.roomSelectPlaceholder')}
               onChange={(e, value) => {
                 const newValue = value as number;
