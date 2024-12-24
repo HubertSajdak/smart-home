@@ -13,3 +13,7 @@ export { default as Window } from './window';
 export { default as Monitor } from './monitor';
 export { default as Wifi } from './wifi';
 export { default as LightBulb } from './light-bulb';
+export { default as Sunny } from './sunny';
+export { default as Dots } from './dots';
+export { default as Speaker } from './speaker';
+export { default as Shield } from './shield';

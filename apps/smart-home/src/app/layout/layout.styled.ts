@@ -10,6 +10,7 @@ export const StyledLayoutContentWrapper = styled.main(({ theme }) => ({
   marginLeft: '287px',
   width: '100vw',
   minHeight: '100vh',
+  gap: `${theme.spacing(3)}`,
   padding: `${theme.spacing(3.75)} ${theme.spacing(8.75)}`,
   [`@media (max-width:${theme.screen.isDesktop})`]: {
     marginLeft: '0',
@@ -33,4 +34,5 @@ export const StyledLayoutSidebarWrapper = styled.div<{ $isSidebarOpen: boolean }
     width: '100%',
     marginRight: $isSidebarOpen ? 0 : '-110%',
   },
+  zIndex: 1,
 }));

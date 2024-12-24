@@ -1,5 +1,6 @@
 import { supabaseSmartHome } from '@smart-home/shared/supabase/db';
 import { queryKeysConfig } from '@smart-home/shared/utils/react-query';
+import { useDeviceStore } from '@smart-home/shared/utils/store';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 
 import { allDevicesDto } from './all-devices-by-room-dto';
@@ -9,22 +10,29 @@ interface IDeviceTypes {
   type: string;
 }
 
-export async function getAllDevice(deviceTypeId: number) {
+export async function getRoomDevices(roomId: number, deviceTypeId?: number) {
   if (deviceTypeId !== 0) {
     const { data } = await supabaseSmartHome
-      .from(queryKeysConfig.allDevices.relationKey)
+      .from(queryKeysConfig.devices.relationKey)
       .select()
-      .eq('device_type_id', deviceTypeId);
+      .eq('room_assignment_id', roomId)
+      .eq('device_type_id', deviceTypeId)
+      .order('created_at');
     return allDevicesDto(data);
   }
-  const { data } = await supabaseSmartHome.from(queryKeysConfig.allDevices.relationKey).select();
+  const { data } = await supabaseSmartHome
+    .from(queryKeysConfig.devices.relationKey)
+    .select()
+    .eq('room_assignment_id', roomId)
+    .order('created_at');
   return allDevicesDto(data);
 }
 
-export function useGetAllDevices(deviceTypeId: number) {
+export function useGetRoomDevices(roomId: number) {
+  const deviceTypeId = useDeviceStore((state) => state.queryParams.deviceTypeId);
   return useQuery({
-    queryKey: [queryKeysConfig.allDevices.queryKey, deviceTypeId],
-    queryFn: () => getAllDevice(deviceTypeId),
+    queryKey: [queryKeysConfig.devices.queryKey, roomId, deviceTypeId],
+    queryFn: () => getRoomDevices(roomId, deviceTypeId),
   });
 }
 
@@ -39,18 +47,18 @@ export function useGetAllDeviceTypes() {
 
 async function addDevice({
   deviceName,
-  deviceConfig,
+  deviceSettings,
   deviceTypeId,
   roomAssignmentId,
 }: {
   deviceName: string;
-  deviceConfig: null;
+  deviceSettings: null;
   deviceTypeId: number;
   roomAssignmentId: number;
 }) {
-  const { error } = await supabaseSmartHome.from(queryKeysConfig.allDevices.relationKey).insert({
+  const { error } = await supabaseSmartHome.from(queryKeysConfig.devices.relationKey).insert({
     device_name: deviceName,
-    device_config: deviceConfig,
+    device_settings: deviceSettings,
     device_type_id: deviceTypeId,
     room_assignment_id: roomAssignmentId,
   });
@@ -60,25 +68,65 @@ async function addDevice({
 export function useAddDevice() {
   const queryClient = useQueryClient();
   return useMutation({
-    mutationFn: ({
+    mutationFn: async ({
       deviceName,
-      deviceConfig,
+      deviceSettings,
       deviceTypeId,
       roomAssignmentId,
     }: {
       deviceName: string;
-      deviceConfig: null;
+      deviceSettings: null;
       deviceTypeId: number;
       roomAssignmentId: number;
     }) =>
-      addDevice({
+      await addDevice({
         deviceName,
-        deviceConfig,
+        deviceSettings,
         deviceTypeId,
         roomAssignmentId,
       }),
     onSuccess: async () => {
-      await queryClient.invalidateQueries({ queryKey: [queryKeysConfig.allDevices.queryKey] });
+      await queryClient.invalidateQueries({
+        queryKey: [queryKeysConfig.devices.queryKey],
+      });
+    },
+  });
+}
+
+async function updateDevicePowerSettings({
+  deviceId,
+  isOn,
+}: {
+  deviceId: number;
+
+  isOn: boolean;
+}) {
+  const { error } = await supabaseSmartHome
+    .from(queryKeysConfig.devices.relationKey)
+    .update({
+      is_on: isOn,
+    })
+    .eq('id', deviceId);
+  return error;
+}
+
+export function useUpdateDevicePowerSettings() {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: async ({
+      deviceId,
+
+      isOn,
+    }: {
+      deviceId: number;
+      isOn: boolean;
+    }) => {
+      await updateDevicePowerSettings({ deviceId, isOn });
+    },
+    onSuccess: async () => {
+      await queryClient.invalidateQueries({
+        queryKey: [queryKeysConfig.devices.queryKey],
+      });
     },
   });
 }

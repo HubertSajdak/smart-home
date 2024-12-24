@@ -1,5 +1,5 @@
 interface IQueryKeysConfig {
-  allDevices: {
+  devices: {
     relationKey: string;
     queryKey: string;
   };
@@ -8,6 +8,10 @@ interface IQueryKeysConfig {
     queryKey: string;
   };
   rooms: {
+    relationKey: string;
+    queryKey: string;
+  };
+  singleRoom: {
     relationKey: string;
     queryKey: string;
   };
@@ -17,9 +21,9 @@ interface IQueryKeysConfig {
 }
 
 const queryKeysConfig: IQueryKeysConfig = {
-  allDevices: {
+  devices: {
     relationKey: 'device',
-    queryKey: 'allDevices',
+    queryKey: 'devices',
   },
   alLDeviceTypes: {
     relationKey: 'device_type',
@@ -28,6 +32,10 @@ const queryKeysConfig: IQueryKeysConfig = {
   rooms: {
     relationKey: 'rooms',
     queryKey: 'rooms',
+  },
+  singleRoom: {
+    relationKey: 'rooms',
+    queryKey: 'singleRoom',
   },
   roomsNavigation: {
     queryKey: 'roomsNavigation',

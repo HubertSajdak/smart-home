@@ -1,7 +1,7 @@
-import { IDeviceDto } from '@smart-home/device/data-access-device-list';
+import { useGetRoomDevices, useUpdateDevicePowerSettings } from '@smart-home/device/data-access-device-list';
 import { Typography } from '@smart-home/shared/ui';
 import { useDeviceStore } from '@smart-home/shared/utils/store';
-import React from 'react';
+import React, { useCallback } from 'react';
 
 import DeviceCard from './device-card';
 import DeviceRow from './device-row';
@@ -10,13 +10,18 @@ import { StyledDeviceList, StyledDeviceSection } from './device-section.styled';
 interface IDeviceSectionProps {
   roomId: number;
   roomLabel: string;
-  allDevices: IDeviceDto[];
 }
 
-const DeviceSection = ({ roomId, roomLabel, allDevices }: IDeviceSectionProps) => {
-  const { deviceListDisplayType } = useDeviceStore();
-  const devicesAssignedToRoom = allDevices.filter(({ roomAssignmentId }) => roomAssignmentId === roomId);
-
+const DeviceSection = ({ roomId, roomLabel }: IDeviceSectionProps) => {
+  const deviceListDisplayType = useDeviceStore((state) => state.deviceListDisplayType);
+  const { data: roomDevices } = useGetRoomDevices(roomId);
+  const { mutate: updateDevicePowerMutation } = useUpdateDevicePowerSettings();
+  const handleDevicePowerOn = useCallback(
+    ({ deviceId, isOn }: { deviceId: number; isOn: boolean }) => {
+      updateDevicePowerMutation({ deviceId, isOn });
+    },
+    [updateDevicePowerMutation]
+  );
   return (
     <StyledDeviceSection>
       <div>
@@ -25,12 +30,40 @@ const DeviceSection = ({ roomId, roomLabel, allDevices }: IDeviceSectionProps) =
         </Typography>
       </div>
       <StyledDeviceList $displayType={deviceListDisplayType}>
-        {devicesAssignedToRoom && devicesAssignedToRoom.length > 0 ? (
-          devicesAssignedToRoom.map(({ deviceName, deviceTypeId, id, isOn }) => {
+        {roomDevices && roomDevices.length > 0 ? (
+          roomDevices.map(({ deviceName, deviceTypeId, id, isOn }) => {
             if (deviceListDisplayType === 'grid') {
-              return <DeviceCard key={id} deviceName={deviceName} deviceType={deviceTypeId} isOn={isOn} id={id} />;
+              return (
+                <DeviceCard
+                  key={id}
+                  deviceName={deviceName}
+                  deviceType={deviceTypeId}
+                  isOn={isOn}
+                  id={id}
+                  onCardClick={() =>
+                    handleDevicePowerOn({
+                      deviceId: id,
+                      isOn: !isOn,
+                    })
+                  }
+                />
+              );
             }
-            return <DeviceRow key={id} deviceName={deviceName} deviceType={deviceTypeId} isOn={isOn} id={id} />;
+            return (
+              <DeviceRow
+                key={id}
+                deviceName={deviceName}
+                deviceType={deviceTypeId}
+                isOn={isOn}
+                id={id}
+                onRowClick={() =>
+                  handleDevicePowerOn({
+                    deviceId: id,
+                    isOn: !isOn,
+                  })
+                }
+              />
+            );
           })
         ) : (
           <Typography variant={'body'}>No devices assigned</Typography>

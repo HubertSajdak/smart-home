@@ -9,6 +9,7 @@ export const StyledDeviceRow = styled('div')<{ $color: string }>`
   background-color: ${({ $color }) => $color};
   padding: ${({ theme }) => theme.spacing(1.2)};
   border-radius: ${({ theme }) => theme.spacing(3)};
+  cursor: pointer;
 `;
 export const StyledIconBackground = styled('div')`
   display: flex;
@@ -23,4 +24,9 @@ export const StyledIconBackground = styled('div')`
 export const StyledCardInformation = styled('div')`
   display: flex;
   gap: ${({ theme }) => theme.spacing(1)};
+`;
+
+export const StyledOpenDetailsIcon = styled('div')`
+  padding: ${({ theme }) => theme.spacing(2)};
+  cursor: pointer;
 `;

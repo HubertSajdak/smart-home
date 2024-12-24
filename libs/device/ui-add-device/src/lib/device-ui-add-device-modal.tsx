@@ -14,7 +14,7 @@ export function DeviceUiAddDeviceModal() {
   const [isOpen, setIsOpen] = useState(false);
   const backgroundRef = useRef(null);
   const handleModalOpen = () => setIsOpen((prev) => !prev);
-  const handleCloseModal = useCallback((e: MouseEvent<HTMLDivElement>) => {
+  const handleCloseModalOnBackgroundClick = useCallback((e: MouseEvent<HTMLDivElement | HTMLButtonElement>) => {
     if (backgroundRef.current === e.target) {
       handleModalOpen();
     }
@@ -25,12 +25,12 @@ export function DeviceUiAddDeviceModal() {
         <IconButton color={'white'} icon={<Icon name={'Add'} />} onClick={handleModalOpen} />
       </StyledOpenModalContainer>
       {isOpen && (
-        <StyledAddDeviceBackground onClick={handleCloseModal} ref={backgroundRef}>
+        <StyledAddDeviceBackground onClick={handleCloseModalOnBackgroundClick} ref={backgroundRef}>
           <StyledAddDeviceModalContent>
             <StyledCloseIconContainer onClick={handleModalOpen}>
               <Icon name={'Close'} color={'white'} height={30} width={30} />
             </StyledCloseIconContainer>
-            <AddDeviceForm />
+            <AddDeviceForm onSumitModalClose={handleModalOpen} />
           </StyledAddDeviceModalContent>
         </StyledAddDeviceBackground>
       )}
