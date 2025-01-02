@@ -1,18 +1,4 @@
-interface ILightDeviceSettings {
-  light_color: string;
-  light_intensity: string;
-}
-
-interface ITemperatureDeviceSettings {
-  temperature: number;
-}
-
-interface IMediaDeviceSettings {
-  channel: number;
-  volume: number;
-}
-
-export type TDeviceSettings = ILightDeviceSettings | ITemperatureDeviceSettings | IMediaDeviceSettings | null;
+import { TDeviceSettings } from '@smart-home/shared/utils/store';
 
 interface IDevice {
   id: number;

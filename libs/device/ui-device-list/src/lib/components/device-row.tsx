@@ -1,7 +1,7 @@
 import { Icon } from '@smart-home/shared/theme/smart-home-theme';
 import { Typography } from '@smart-home/shared/ui';
 import { deviceColorMapping, deviceIconMapping, truncateString } from '@smart-home/shared/utils/functions';
-import { useDeviceSettingsStore } from '@smart-home/shared/utils/store';
+import { TDeviceSettings, useDeviceSettingsStore } from '@smart-home/shared/utils/store';
 import React from 'react';
 import { useTheme } from 'styled-components';
 
@@ -14,24 +14,34 @@ import {
 
 interface IDeviceRowProps {
   id: number;
-  deviceType: number;
+  deviceTypeId: number;
   deviceName: string;
   isOn: boolean;
+  roomAssignmentId: number;
   onRowClick: () => void;
+  deviceSettings: TDeviceSettings;
 }
 
-const DeviceRow = ({ deviceType, deviceName, isOn, onRowClick }: IDeviceRowProps) => {
+const DeviceRow = ({
+  id,
+  roomAssignmentId,
+  deviceTypeId,
+  deviceName,
+  isOn,
+  onRowClick,
+  deviceSettings,
+}: IDeviceRowProps) => {
   const theme = useTheme();
   const { setSettingsWindowOpen, isSelectedDeviceOn } = useDeviceSettingsStore();
 
   return (
-    <StyledDeviceRow onClick={onRowClick} $color={deviceColorMapping(deviceType, theme, isOn)}>
+    <StyledDeviceRow onClick={onRowClick} $color={deviceColorMapping(deviceTypeId, theme, isOn)}>
       <StyledIconBackground>
-        {deviceType !== 3 ? (
-          <Icon name={deviceIconMapping(deviceType)} />
+        {deviceTypeId !== 3 ? (
+          <Icon name={deviceIconMapping(deviceTypeId)} />
         ) : (
           <Typography variant={'bodyBold'} color={'dark'}>
-            23
+            {deviceSettings && 'temperature' in deviceSettings && deviceSettings.temperature}°C
           </Typography>
         )}
       </StyledIconBackground>
@@ -43,7 +53,20 @@ const DeviceRow = ({ deviceType, deviceName, isOn, onRowClick }: IDeviceRowProps
       <Typography variant={'body'} color={'dark'}>
         {isOn ? 'On' : 'Off'}
       </Typography>
-      <StyledOpenDetailsIcon onClick={() => setSettingsWindowOpen(true, deviceType, deviceName, isSelectedDeviceOn)}>
+      <StyledOpenDetailsIcon
+        onClick={(e) => {
+          e.stopPropagation();
+          setSettingsWindowOpen(
+            id,
+            true,
+            deviceTypeId,
+            deviceName,
+            isSelectedDeviceOn,
+            deviceSettings,
+            roomAssignmentId
+          );
+        }}
+      >
         <Icon name="Dots" />
       </StyledOpenDetailsIcon>
     </StyledDeviceRow>

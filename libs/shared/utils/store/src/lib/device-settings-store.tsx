@@ -1,24 +1,65 @@
 import { create } from 'zustand';
 
+interface ILightDeviceSettings {
+  light_color: number;
+  light_intensity: number;
+}
+
+interface ITemperatureDeviceSettings {
+  temperature: number;
+}
+
+interface IMediaDeviceSettings {
+  channel: number;
+  volume: number;
+}
+
+export type TDeviceSettings = ILightDeviceSettings | ITemperatureDeviceSettings | IMediaDeviceSettings | null;
+
 interface IDeviceSettingsStore {
+  selectedDeviceId: number | null;
   isSettingsWindowOpen: boolean;
-  setSettingsWindowOpen: (open: boolean, deviceType: number | null, deviceName: string, isOn: boolean) => void;
-  deviceTypeId: number | null;
-  deviceName: string;
+  setSettingsWindowOpen: (
+    selectedDeviceId: number | null,
+    isSettingsWindowOpen: boolean,
+    selectedDeviceTypeId: number | null,
+    selectedDeviceName: string,
+    isSelectedDeviceOn: boolean,
+    selectedDeviceSettings: TDeviceSettings,
+    selectedDeviceRoomAssignmentId: number | null
+  ) => void;
+  selectedDeviceTypeId: number | null;
+  selectedDeviceName: string;
   isSelectedDeviceOn: boolean;
+  selectedDeviceSettings: TDeviceSettings;
+  selectedDeviceRoomAssignmentId: number | null;
 }
 
 const useDeviceSettingsStore = create<IDeviceSettingsStore>((set) => ({
   isSettingsWindowOpen: false,
-  deviceTypeId: null,
-  deviceName: '',
+  selectedDeviceTypeId: null,
+  selectedDeviceName: '',
   isSelectedDeviceOn: false,
-  setSettingsWindowOpen: (open: boolean, deviceType: number | null, deviceName: string, isSelectedDeviceOn: boolean) =>
+  selectedDeviceId: null,
+  selectedDeviceSettings: null,
+  selectedDeviceRoomAssignmentId: null,
+  setSettingsWindowOpen: (
+    selectedDeviceId,
+    isSettingsWindowOpen,
+    selectedDeviceTypeId,
+    selectedDeviceName,
+    isSelectedDeviceOn,
+    selectedDeviceSettings,
+    selectedDeviceRoomAssignmentId
+  ) =>
     set({
-      isSettingsWindowOpen: open,
-      deviceTypeId: deviceType,
-      deviceName: deviceName,
+      selectedDeviceId: selectedDeviceId,
+      isSettingsWindowOpen: isSettingsWindowOpen,
+      selectedDeviceTypeId: selectedDeviceTypeId,
+      selectedDeviceName: selectedDeviceName,
       isSelectedDeviceOn: isSelectedDeviceOn,
+      selectedDeviceSettings: selectedDeviceSettings,
+      selectedDeviceRoomAssignmentId: selectedDeviceRoomAssignmentId,
     }),
 }));
 

@@ -8,18 +8,18 @@ import { StyledSettingsSection } from './settings-section-wrapper.styled';
 import { TemperatureSettings } from './temperature-settings/temperature-settings';
 
 export const SettingsSectionWrapper = () => {
-  const { deviceTypeId } = useDeviceSettingsStore();
+  const { selectedDeviceTypeId } = useDeviceSettingsStore();
   let deviceSettings;
-  if (deviceTypeId === 3) {
+  if (selectedDeviceTypeId === 3) {
     deviceSettings = <TemperatureSettings />;
   }
-  if (deviceTypeId === 4) {
+  if (selectedDeviceTypeId === 4) {
     deviceSettings = <LightSettings />;
   }
-  if (deviceTypeId === 2) {
+  if (selectedDeviceTypeId === 2) {
     deviceSettings = <MediaSettings />;
   }
-  if (deviceTypeId === 1) {
+  if (selectedDeviceTypeId === 1) {
     deviceSettings = <SecuritySettings />;
   }
 

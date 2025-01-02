@@ -18,7 +18,7 @@ const SelectDeviceCard = ({ label, iconName, deviceTypeId, onDeviceCardClick, is
     <>
       <StyledSelectDeviceCard
         $isActive={isActive}
-        $color={deviceColorMapping(deviceTypeId, theme)}
+        $color={deviceColorMapping(deviceTypeId, theme, true)}
         onClick={() => onDeviceCardClick(deviceTypeId)}
       >
         <Icon name={iconName} height={34} width={34} />

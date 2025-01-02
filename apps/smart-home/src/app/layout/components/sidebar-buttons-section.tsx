@@ -14,13 +14,13 @@ const SidebarButtonsSection = () => {
         <IconButton
           color="primary.main"
           icon={<Icon name={'Bell'} color={theme.palette.common.white} />}
-          onClick={() => console.log('elo')}
+          onClick={() => console.log('test1')}
         />
       )}
       <IconButton
         color="primary.main"
         icon={<Icon name={'Power'} color={theme.palette.common.white} />}
-        onClick={() => console.log('test')}
+        onClick={() => console.log('test2')}
       />
     </StyledSidebarButtonsSection>
   );

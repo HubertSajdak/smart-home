@@ -51,7 +51,7 @@ export const StyledBrightnessSlider = styled(BaseSlider)<{ $color: IColorSetting
     position: absolute;
     height: 4px;
     border-radius: 6px;
-    background-color: hsl(${$color.hue} ${$color.saturation} ${$color.luminosity});
+    background-color: hsl(${$color.hue} ${$color.saturation} ${$color.luminosity} / ${$color.alpha});
   }
 
   & .${sliderClasses.thumb} {

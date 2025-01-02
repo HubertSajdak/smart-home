@@ -4,4 +4,5 @@ export {
   useAddDevice,
   useUpdateDevicePowerSettings,
 } from './lib/device-data-access-device-list';
-export type { IDevice, IDeviceDto, TDeviceSettings } from './lib/all-devices-by-room-dto';
+export { useUpdateDeviceSettings, useUpdateDeviceRoomAssignment } from './lib/device-data-access-device-settings';
+export type { IDevice, IDeviceDto } from './lib/all-devices-by-room-dto';

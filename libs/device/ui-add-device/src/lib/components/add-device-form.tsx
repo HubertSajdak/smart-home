@@ -12,10 +12,10 @@ import { StyledDeviceTypeCardContainer, StyledFormContainer, StyledInputContaine
 import SelectDeviceCard from './select-device-card';
 
 interface IAddDeviceFormProps {
-  onSumitModalClose: () => void;
+  onSubmitModalClose: () => void;
 }
 
-const AddDeviceForm = ({ onSumitModalClose }: IAddDeviceFormProps) => {
+const AddDeviceForm = ({ onSubmitModalClose }: IAddDeviceFormProps) => {
   const { t } = useTranslation();
   const { data: rooms } = useGetRooms();
   const { mutate: addDeviceMutation } = useAddDevice();
@@ -23,7 +23,7 @@ const AddDeviceForm = ({ onSumitModalClose }: IAddDeviceFormProps) => {
     defaultValues: {
       deviceTypeId: -1,
       deviceName: '',
-      deviceConfig: null,
+      deviceSettings: null,
       roomAssignmentId: -1,
     },
     resolver: zodResolver(addDeviceSchema),
@@ -33,6 +33,18 @@ const AddDeviceForm = ({ onSumitModalClose }: IAddDeviceFormProps) => {
   const onDeviceCardClick = useCallback(
     (deviceTypeId: number) => {
       setValue('deviceTypeId', deviceTypeId);
+      if (deviceTypeId === 1) {
+        setValue('deviceSettings', null);
+      }
+      if (deviceTypeId === 2) {
+        setValue('deviceSettings', { channel: 0, volume: 0 });
+      }
+      if (deviceTypeId === 3) {
+        setValue('deviceSettings', { temperature: 16 });
+      }
+      if (deviceTypeId === 4) {
+        setValue('deviceSettings', { light_color: 100, light_intensity: 1 });
+      }
     },
     [setValue]
   );
@@ -55,7 +67,7 @@ const AddDeviceForm = ({ onSumitModalClose }: IAddDeviceFormProps) => {
   };
   const onSubmit: SubmitHandler<TAddDeviceFormFields> = (data) => {
     addDeviceMutation(data);
-    onSumitModalClose();
+    onSubmitModalClose();
   };
   return (
     <StyledFormContainer onSubmit={handleSubmit(onSubmit)}>
