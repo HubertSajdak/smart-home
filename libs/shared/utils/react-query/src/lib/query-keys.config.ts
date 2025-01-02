@@ -3,6 +3,10 @@ interface IQueryKeysConfig {
     relationKey: string;
     queryKey: string;
   };
+  deviceSettings: {
+    relationKey: string;
+    queryKey: string;
+  };
   alLDeviceTypes: {
     relationKey: string;
     queryKey: string;
@@ -24,6 +28,10 @@ const queryKeysConfig: IQueryKeysConfig = {
   devices: {
     relationKey: 'device',
     queryKey: 'devices',
+  },
+  deviceSettings: {
+    relationKey: 'device',
+    queryKey: 'deviceSettings',
   },
   alLDeviceTypes: {
     relationKey: 'device_type',

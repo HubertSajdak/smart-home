@@ -1,6 +1,6 @@
 import { SelectProps, SelectRootSlotProps } from '@mui/base';
 import { Icon } from '@smart-home/shared/theme/smart-home-theme';
-import React, { ReactNode, useEffect } from 'react';
+import React, { ReactNode } from 'react';
 import { useTheme } from 'styled-components';
 
 import { StyledButton, StyledDivIcon, StyledListbox, StyledOption, StyledPopup, StyledSelect } from './select.styled';
@@ -18,9 +18,7 @@ interface ISelectProps extends SelectProps<NonNullable<unknown>, boolean> {
 export const Select = React.forwardRef((props: ISelectProps, ref: React.ForwardedRef<HTMLButtonElement>) => {
   const { optionsList, variant = 'input' } = props;
   const customButton = variant === 'input' ? CustomInputButton : CustomTextButton;
-  useEffect(() => {
-    console.log(customButton);
-  }, [customButton]);
+
   const slots = {
     root: customButton,
     listbox: StyledListbox,
@@ -30,7 +28,7 @@ export const Select = React.forwardRef((props: ISelectProps, ref: React.Forwarde
   return (
     <StyledSelect {...props} ref={ref} slots={slots} variant={variant}>
       {optionsList.map(({ value, label }) => (
-        <Option value={value} label={label} />
+        <Option key={value} value={value} label={label} />
       ))}
     </StyledSelect>
   );

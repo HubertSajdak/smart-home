@@ -30,7 +30,7 @@ export function DeviceUiAddDeviceModal() {
             <StyledCloseIconContainer onClick={handleModalOpen}>
               <Icon name={'Close'} color={'white'} height={30} width={30} />
             </StyledCloseIconContainer>
-            <AddDeviceForm onSumitModalClose={handleModalOpen} />
+            <AddDeviceForm onSubmitModalClose={() => handleModalOpen()} />
           </StyledAddDeviceModalContent>
         </StyledAddDeviceBackground>
       )}

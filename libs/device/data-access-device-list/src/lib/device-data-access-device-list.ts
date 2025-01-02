@@ -52,7 +52,13 @@ async function addDevice({
   roomAssignmentId,
 }: {
   deviceName: string;
-  deviceSettings: null;
+  deviceSettings: {
+    light_color?: number;
+    light_intensity?: number;
+    channel?: number;
+    volume?: number;
+    temperature?: number;
+  } | null;
   deviceTypeId: number;
   roomAssignmentId: number;
 }) {
@@ -75,7 +81,13 @@ export function useAddDevice() {
       roomAssignmentId,
     }: {
       deviceName: string;
-      deviceSettings: null;
+      deviceSettings: {
+        light_color?: number;
+        light_intensity?: number;
+        channel?: number;
+        volume?: number;
+        temperature?: number;
+      } | null;
       deviceTypeId: number;
       roomAssignmentId: number;
     }) =>
@@ -93,14 +105,7 @@ export function useAddDevice() {
   });
 }
 
-async function updateDevicePowerSettings({
-  deviceId,
-  isOn,
-}: {
-  deviceId: number;
-
-  isOn: boolean;
-}) {
+async function updateDevicePowerSettings({ deviceId, isOn }: { deviceId: number; isOn: boolean }) {
   const { error } = await supabaseSmartHome
     .from(queryKeysConfig.devices.relationKey)
     .update({
@@ -113,14 +118,7 @@ async function updateDevicePowerSettings({
 export function useUpdateDevicePowerSettings() {
   const queryClient = useQueryClient();
   return useMutation({
-    mutationFn: async ({
-      deviceId,
-
-      isOn,
-    }: {
-      deviceId: number;
-      isOn: boolean;
-    }) => {
+    mutationFn: async ({ deviceId, isOn }: { deviceId: number; isOn: boolean }) => {
       await updateDevicePowerSettings({ deviceId, isOn });
     },
     onSuccess: async () => {

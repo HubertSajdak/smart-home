@@ -31,13 +31,13 @@ const DeviceSection = ({ roomId, roomLabel }: IDeviceSectionProps) => {
       </div>
       <StyledDeviceList $displayType={deviceListDisplayType}>
         {roomDevices && roomDevices.length > 0 ? (
-          roomDevices.map(({ deviceName, deviceTypeId, id, isOn }) => {
+          roomDevices.map(({ deviceName, deviceTypeId, roomAssignmentId, id, isOn, deviceSettings }) => {
             if (deviceListDisplayType === 'grid') {
               return (
                 <DeviceCard
                   key={id}
                   deviceName={deviceName}
-                  deviceType={deviceTypeId}
+                  deviceTypeId={deviceTypeId}
                   isOn={isOn}
                   id={id}
                   onCardClick={() =>
@@ -46,6 +46,8 @@ const DeviceSection = ({ roomId, roomLabel }: IDeviceSectionProps) => {
                       isOn: !isOn,
                     })
                   }
+                  deviceSettings={deviceSettings}
+                  roomAssignmentId={roomAssignmentId}
                 />
               );
             }
@@ -53,7 +55,7 @@ const DeviceSection = ({ roomId, roomLabel }: IDeviceSectionProps) => {
               <DeviceRow
                 key={id}
                 deviceName={deviceName}
-                deviceType={deviceTypeId}
+                deviceTypeId={deviceTypeId}
                 isOn={isOn}
                 id={id}
                 onRowClick={() =>
@@ -62,6 +64,8 @@ const DeviceSection = ({ roomId, roomLabel }: IDeviceSectionProps) => {
                     isOn: !isOn,
                   })
                 }
+                deviceSettings={deviceSettings}
+                roomAssignmentId={roomAssignmentId}
               />
             );
           })

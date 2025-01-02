@@ -13,4 +13,5 @@ export const StyledDeviceDetails = styled('div')`
   background-color: ${({ theme }) => theme.palette.primary.light};
   border-radius: ${({ theme }) => theme.spacing(4)};
   padding: ${({ theme }) => theme.spacing(3)};
+  z-index: 1;
 `;
