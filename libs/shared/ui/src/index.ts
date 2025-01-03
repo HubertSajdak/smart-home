@@ -4,3 +4,4 @@ export { IconButton } from './lib/button/icon-button';
 export { Input } from './lib/input/input';
 export { Button } from './lib/button/button';
 export { Select } from './lib/select/select';
+export { LoadingSpinner } from './lib/loading-spinner/loading-spinner';

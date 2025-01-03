@@ -18,9 +18,16 @@
     "selectTypeHeader": "select type",
     "roomSelectLabel": "assign to the room",
     "roomSelectPlaceholder": "select room",
-    "addDeviceNameLabel": "device name"
+    "addDeviceNameLabel": "device name",
+    "deviceTypeError": "select device type",
+    "deviceRoomAssignmentError": "assign device to a room",
+    "deviceNameError": "device name contain at least 3 characters"
   },
   "buttons": {
     "addDevice": "add device"
+  },
+  "device": {
+    "on": "On",
+    "off": "Off"
   }
 }

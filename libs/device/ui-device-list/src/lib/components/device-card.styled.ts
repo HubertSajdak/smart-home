@@ -13,11 +13,12 @@ export const StyledDeviceCard = styled('div')<{ $color: string }>`
   cursor: pointer;
 `;
 
-export const StyledIconBackground = styled('div')`
+export const StyledIconBackground = styled('div')<{ $lightColor?: { color: number; intensity: number } }>`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: ${({ theme }) => theme.palette.common.white};
+  background-color: ${({ theme, $lightColor }) =>
+    $lightColor ? `hsl(${$lightColor.color} 100 50 / ${$lightColor.intensity})` : theme.palette.common.white};
   height: 48px;
   width: 48px;
   border-radius: 50%;

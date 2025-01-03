@@ -1,7 +1,7 @@
 import styled, { DefaultTheme } from 'styled-components';
 
 interface IFontProps {
-  $color?: 'light' | 'dark' | 'grey';
+  $color?: 'light' | 'dark' | 'grey' | 'warning';
 }
 
 const getFontColor = (theme: DefaultTheme, color: IFontProps['$color']) => {
@@ -14,6 +14,9 @@ const getFontColor = (theme: DefaultTheme, color: IFontProps['$color']) => {
   if (color === 'light') {
     return theme.palette.text.light;
   }
+  if (color === 'warning') {
+    return theme.palette.text.warning;
+  }
   return theme.palette.text.dark;
 };
 export const StyledBody = styled.p<{ $color?: IFontProps['$color']; capitalize?: boolean }>`
@@ -22,7 +25,10 @@ export const StyledBody = styled.p<{ $color?: IFontProps['$color']; capitalize?:
   font-size: ${({ theme }) => theme.typography.body.fontSize};
   letter-spacing: ${({ theme }) => theme.typography.body.letterSpacing};
   color: ${({ theme, $color }) => getFontColor(theme, $color)};
-  text-transform: ${({ capitalize }) => (capitalize ? 'capitalize' : 'none')};
+
+  &::first-letter {
+    text-transform: ${({ capitalize }) => (capitalize ? 'capitalize' : 'none')};
+  }
 `;
 
 export const StyledBodyBold = styled.p<{ $color?: IFontProps['$color']; capitalize?: boolean }>`
@@ -31,7 +37,10 @@ export const StyledBodyBold = styled.p<{ $color?: IFontProps['$color']; capitali
   font-size: ${({ theme }) => theme.typography.bodyBold.fontSize};
   letter-spacing: ${({ theme }) => theme.typography.bodyBold.letterSpacing};
   color: ${({ theme, $color }) => getFontColor(theme, $color)};
-  text-transform: ${({ capitalize }) => (capitalize ? 'capitalize' : 'none')};
+
+  &::first-letter {
+    text-transform: ${({ capitalize }) => (capitalize ? 'capitalize' : 'none')};
+  }
 `;
 
 export const StyledHeaderS = styled.h3<{ $color?: IFontProps['$color']; capitalize?: boolean }>`
@@ -40,7 +49,10 @@ export const StyledHeaderS = styled.h3<{ $color?: IFontProps['$color']; capitali
   font-size: ${({ theme }) => theme.typography.headerS.fontSize};
   letter-spacing: ${({ theme }) => theme.typography.headerS.letterSpacing};
   color: ${({ theme, $color }) => getFontColor(theme, $color)};
-  text-transform: ${({ capitalize }) => (capitalize ? 'capitalize' : 'none')};
+
+  &::first-letter {
+    text-transform: ${({ capitalize }) => (capitalize ? 'capitalize' : 'none')};
+  }
 `;
 
 export const StyledHeaderM = styled.h2<{ $color?: IFontProps['$color']; capitalize?: boolean }>`
@@ -49,7 +61,10 @@ export const StyledHeaderM = styled.h2<{ $color?: IFontProps['$color']; capitali
   font-size: ${({ theme }) => theme.typography.headerM.fontSize};
   letter-spacing: ${({ theme }) => theme.typography.headerM.letterSpacing};
   color: ${({ theme, $color }) => getFontColor(theme, $color)};
-  text-transform: ${({ capitalize }) => (capitalize ? 'capitalize' : 'none')};
+
+  &::first-letter {
+    text-transform: ${({ capitalize }) => (capitalize ? 'capitalize' : 'none')};
+  }
 `;
 
 export const StyledHeaderL = styled.h1<{ $color?: IFontProps['$color']; capitalize?: boolean }>`
@@ -58,10 +73,16 @@ export const StyledHeaderL = styled.h1<{ $color?: IFontProps['$color']; capitali
   font-size: ${({ theme }) => theme.typography.headerL.fontSize};
   letter-spacing: ${({ theme }) => theme.typography.headerL.letterSpacing};
   color: ${({ theme, $color }) => getFontColor(theme, $color)};
-  text-transform: ${({ capitalize }) => (capitalize ? 'capitalize' : 'none')};
+
+  &::first-letter {
+    text-transform: ${({ capitalize }) => (capitalize ? 'capitalize' : 'none')};
+  }
 `;
 
 export const StyledParagraph = styled.h1<{ $color?: IFontProps['$color']; capitalize?: boolean }>`
   color: ${({ theme, $color }) => getFontColor(theme, $color)};
-  text-transform: ${({ capitalize }) => (capitalize ? 'capitalize' : 'none')};
+
+  &::first-letter {
+    text-transform: ${({ capitalize }) => (capitalize ? 'capitalize' : 'none')};
+  }
 `;

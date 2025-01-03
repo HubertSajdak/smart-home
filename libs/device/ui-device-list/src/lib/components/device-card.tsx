@@ -3,6 +3,7 @@ import { Typography } from '@smart-home/shared/ui';
 import { deviceColorMapping, deviceIconMapping, truncateString } from '@smart-home/shared/utils/functions';
 import { TDeviceSettings, useDeviceSettingsStore } from '@smart-home/shared/utils/store';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { useTheme } from 'styled-components';
 
 import {
@@ -32,6 +33,7 @@ const DeviceCard = ({
   deviceSettings,
 }: IDeviceCardProps) => {
   const theme = useTheme();
+  const { t } = useTranslation();
   const { setSettingsWindowOpen } = useDeviceSettingsStore();
   return (
     <StyledDeviceCard onClick={onCardClick} $color={deviceColorMapping(deviceTypeId, theme, isOn)}>
@@ -43,7 +45,16 @@ const DeviceCard = ({
       >
         <Icon name="Dots" />
       </StyledOpenDetailsIcon>
-      <StyledIconBackground>
+      <StyledIconBackground
+        $lightColor={
+          deviceTypeId === 4 && deviceSettings && 'light_color' in deviceSettings && 'light_intensity' in deviceSettings
+            ? {
+                color: deviceSettings.light_color,
+                intensity: deviceSettings.light_intensity,
+              }
+            : undefined
+        }
+      >
         {deviceTypeId !== 3 ? (
           <Icon name={deviceIconMapping(deviceTypeId)} />
         ) : (
@@ -57,7 +68,7 @@ const DeviceCard = ({
           {truncateString(deviceName, 15)}
         </Typography>{' '}
         <Typography variant={'body'} color={'dark'}>
-          {isOn ? 'On' : 'Off'}
+          {isOn ? t('device.on') : t('device.off')}
         </Typography>
       </StyledCardInformation>
     </StyledDeviceCard>
