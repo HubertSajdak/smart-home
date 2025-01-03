@@ -3,6 +3,7 @@ import { IconButton, Typography } from '@smart-home/shared/ui';
 import { deviceColorMapping, deviceIconMapping } from '@smart-home/shared/utils/functions';
 import { useDeviceSettingsStore } from '@smart-home/shared/utils/store';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { useTheme } from 'styled-components';
 
 import {
@@ -14,6 +15,7 @@ import {
 
 export const TopSection = () => {
   const theme = useTheme();
+  const { t } = useTranslation();
   const { setSettingsWindowOpen, selectedDeviceTypeId, selectedDeviceName, isSelectedDeviceOn } =
     useDeviceSettingsStore();
 
@@ -27,7 +29,7 @@ export const TopSection = () => {
         </StyledDeviceIconContainer>
         <StyledDeviceName>
           <Typography variant={'bodyBold'}>{selectedDeviceName}</Typography>
-          <Typography variant={'body'}>{isSelectedDeviceOn ? 'On' : 'Off'}</Typography>
+          <Typography variant={'body'}>{isSelectedDeviceOn ? t('device.on') : t('device.off')}</Typography>
         </StyledDeviceName>
       </StyledDeviceInformation>
       <IconButton

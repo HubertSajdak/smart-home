@@ -10,6 +10,7 @@ interface IDarkTheme {
       light: string;
       dark: string;
       grey: string;
+      warning: string;
     };
     common: {
       black: string;
@@ -87,6 +88,7 @@ export const darkTheme: IDarkTheme = {
       light: '#FFFFFF',
       dark: '#000000',
       grey: 'rgba(255, 255, 255, 0.5)',
+      warning: '#FF5348',
     },
     common: {
       black: '#151618',

@@ -11,7 +11,7 @@ import {
 
 interface ITypographyProps {
   variant?: 'body' | 'bodyBold' | 'headerS' | 'headerM';
-  color?: 'light' | 'dark' | 'grey';
+  color?: 'light' | 'dark' | 'grey' | 'warning';
   children: ReactNode;
   capitalize?: boolean;
 }

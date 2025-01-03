@@ -1,5 +1,5 @@
 import { useGetRoomDevices, useUpdateDevicePowerSettings } from '@smart-home/device/data-access-device-list';
-import { Typography } from '@smart-home/shared/ui';
+import { LoadingSpinner, Typography } from '@smart-home/shared/ui';
 import { useDeviceStore } from '@smart-home/shared/utils/store';
 import React, { useCallback } from 'react';
 
@@ -14,7 +14,7 @@ interface IDeviceSectionProps {
 
 const DeviceSection = ({ roomId, roomLabel }: IDeviceSectionProps) => {
   const deviceListDisplayType = useDeviceStore((state) => state.deviceListDisplayType);
-  const { data: roomDevices } = useGetRoomDevices(roomId);
+  const { data: roomDevices, isLoading } = useGetRoomDevices(roomId);
   const { mutate: updateDevicePowerMutation } = useUpdateDevicePowerSettings();
   const handleDevicePowerOn = useCallback(
     ({ deviceId, isOn }: { deviceId: number; isOn: boolean }) => {
@@ -22,6 +22,9 @@ const DeviceSection = ({ roomId, roomLabel }: IDeviceSectionProps) => {
     },
     [updateDevicePowerMutation]
   );
+  if (isLoading) {
+    return <LoadingSpinner />;
+  }
   return (
     <StyledDeviceSection>
       <div>
