@@ -1,6 +1,6 @@
 import { useUpdateDeviceSettings } from '@smart-home/device/data-access-device-list';
 import { useDeviceSettingsStore } from '@smart-home/shared/utils/store';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useDebouncedCallback } from 'use-debounce';
 
 import ChannelBar from './channel-bar';
@@ -11,9 +11,9 @@ const ChannelList = () => {
   const { selectedDeviceId, selectedDeviceSettings } = useDeviceSettingsStore();
   const { mutate: deviceSettingsMutation } = useUpdateDeviceSettings();
   const [activeChannel, setActiveChannel] = useState(0);
-  const handleChannelChange = (channel: number) => {
+  const handleChannelChange = useCallback((channel: number) => {
     setActiveChannel(channel);
-  };
+  }, []);
   const updateChannel = useDebouncedCallback(() => {
     if (!selectedDeviceId || !selectedDeviceSettings || !('channel' in selectedDeviceSettings)) return;
     const mappedSettings = {

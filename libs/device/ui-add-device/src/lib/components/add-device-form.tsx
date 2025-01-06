@@ -65,7 +65,7 @@ const AddDeviceForm = ({ onSubmitModalClose }: IAddDeviceFormProps) => {
     <StyledFormContainer onSubmit={handleSubmit(onSubmit)}>
       <AddDeviceFormFields
         onDeviceCardClick={setDeviceDefaultSettings}
-        deviceTypeIdWatch={deviceTypeIdWatch}
+        selectedDeviceId={deviceTypeIdWatch}
         onRoomChange={handleRoomChange}
         rooms={rooms}
         formErrors={errors}

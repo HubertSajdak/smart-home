@@ -2,6 +2,7 @@ import { useGetRoomDevices, useUpdateDevicePowerSettings } from '@smart-home/dev
 import { LoadingSpinner, Typography } from '@smart-home/shared/ui';
 import { useDeviceStore } from '@smart-home/shared/utils/store';
 import React, { useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import DeviceCard from './device-card';
 import DeviceRow from './device-row';
@@ -13,6 +14,7 @@ interface IDeviceSectionProps {
 }
 
 const DeviceSection = ({ roomId, roomLabel }: IDeviceSectionProps) => {
+  const { t } = useTranslation();
   const deviceListDisplayType = useDeviceStore((state) => state.deviceListDisplayType);
   const { data: roomDevices, isLoading } = useGetRoomDevices(roomId);
   const { mutate: updateDevicePowerMutation } = useUpdateDevicePowerSettings();
@@ -73,7 +75,9 @@ const DeviceSection = ({ roomId, roomLabel }: IDeviceSectionProps) => {
             );
           })
         ) : (
-          <Typography variant={'body'}>No devices assigned</Typography>
+          <Typography variant={'body'} capitalize>
+            {t('deviceList.noDevices')}
+          </Typography>
         )}
       </StyledDeviceList>
     </StyledDeviceSection>

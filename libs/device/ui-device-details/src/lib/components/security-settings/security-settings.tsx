@@ -1,5 +1,5 @@
 import { Icon } from '@smart-home/shared/theme/smart-home-theme';
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { useTheme } from 'styled-components';
 
 import { StyledIconWrapper, StyledSercuitySettings } from './security-settings.styled';
@@ -8,9 +8,9 @@ import Switch from './switch';
 const SecuritySettings = () => {
   const theme = useTheme();
   const [isOn, setIsOn] = useState(false);
-  const handleCheck = () => {
+  const handleCheck = useCallback(() => {
     setIsOn((prev) => !prev);
-  };
+  }, []);
   return (
     <StyledSercuitySettings>
       <StyledIconWrapper>

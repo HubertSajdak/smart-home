@@ -12,7 +12,7 @@ import SelectDeviceCard from './select-device-card';
 
 interface IAddDeviceFormFieldsProps {
   onDeviceCardClick: (deviceTypeId: number) => void;
-  deviceTypeIdWatch: number;
+  selectedDeviceId: number;
   onRoomChange: (value: number) => void;
   rooms: IRoomsList[] | null | undefined;
   formErrors: FieldErrors;
@@ -24,21 +24,12 @@ const AddDeviceFormFields = ({
   formControl,
   rooms,
   onDeviceCardClick,
-  deviceTypeIdWatch,
+  selectedDeviceId,
   onRoomChange,
 }: IAddDeviceFormFieldsProps) => {
   const { t } = useTranslation();
-  const roomsToOptionsMapping = (rooms: IRoomsList[] | null | undefined) => {
-    if (rooms && rooms.length > 0) {
-      return rooms.map(({ id, label }) => {
-        return {
-          value: id,
-          label,
-        };
-      });
-    }
-    return [];
-  };
+
+  const roomsToOptionsMapping = (rooms: IRoomsList[] = []) => rooms.map(({ id, label }) => ({ value: id, label }));
 
   return (
     <>
@@ -52,7 +43,7 @@ const AddDeviceFormFields = ({
         {addDeviceCardsConfig.map(({ label, deviceTypeId, iconName }) => (
           <SelectDeviceCard
             key={deviceTypeId}
-            isActive={deviceTypeId === deviceTypeIdWatch}
+            isActive={deviceTypeId === selectedDeviceId}
             deviceTypeId={deviceTypeId}
             label={label}
             iconName={iconName}
@@ -86,7 +77,7 @@ const AddDeviceFormFields = ({
                 const newValue = value as number;
                 onRoomChange(newValue);
               }}
-              optionsList={roomsToOptionsMapping(rooms)}
+              optionsList={roomsToOptionsMapping(rooms || [])}
             />
           )}
         />
