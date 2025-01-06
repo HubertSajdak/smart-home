@@ -1,19 +1,21 @@
 import { useUpdateDeviceSettings } from '@smart-home/device/data-access-device-list';
 import { useDeviceSettingsStore } from '@smart-home/shared/utils/store';
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useTheme } from 'styled-components';
 import { useDebouncedCallback } from 'use-debounce';
 
 import { StyledCircularSlider } from './temperature-settings.styled';
 
 export const TemperatureSettings = () => {
+  const { t } = useTranslation();
   const theme = useTheme();
   const { selectedDeviceSettings, selectedDeviceId } = useDeviceSettingsStore();
   const { mutate: deviceSettingsMutation } = useUpdateDeviceSettings();
   const [temperature, setTemperature] = useState(0);
-  const handleTemperatureChange = (value: number) => {
+  const handleTemperatureChange = useCallback((value: number) => {
     setTemperature(value);
-  };
+  }, []);
   const updateTemperature = useDebouncedCallback(() => {
     if (!selectedDeviceId) return;
     const mappedSettings = {
@@ -33,7 +35,7 @@ export const TemperatureSettings = () => {
 
   return (
     <StyledCircularSlider
-      label={'Temperature °C'}
+      label={t('device.temperatureLabel')}
       labelColor={theme.palette.common.white}
       valueFontSize={'48px'}
       labelFontSize={'24px'}

@@ -6,6 +6,9 @@
   "roomList": {
     "rooms": "rooms"
   },
+  "deviceList": {
+    "noDevices": "no devices assigned"
+  },
   "deviceTypes": {
     "all": "all",
     "security": "security",
@@ -28,6 +31,7 @@
   },
   "device": {
     "on": "On",
-    "off": "Off"
+    "off": "Off",
+    "temperatureLabel": "Temperature °C"
   }
 }

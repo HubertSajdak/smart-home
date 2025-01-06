@@ -10,7 +10,7 @@ export const StyledAppBar = styled.div`
   }
 `;
 
-export const StyledDiv = styled.div`
+export const FiltersTabsSection = styled.div`
   display: flex;
   justify-content: space-between;
   gap: ${({ theme }) => theme.spacing(2)};
