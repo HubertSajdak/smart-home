@@ -30,5 +30,8 @@ export const StyledIconButton = styled(Button)<{ $color: TIconButtonColor }>`
   border-radius: 50%;
   background-color: ${({ $color, theme }) => getIconButtonBgColor($color, theme)};
   border: none;
+  &:hover {
+    background-color: ${({ theme }) => theme.palette.grey[10]};
+  }
   cursor: pointer;
 `;

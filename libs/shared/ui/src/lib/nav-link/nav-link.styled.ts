@@ -39,6 +39,7 @@ export const StyledNavLink = styled(NavLink)(({ theme }) => ({
   textTransform: 'capitalize',
   display: 'flex',
   alignItems: 'center',
+
   gap: theme.spacing(2.5),
   fontWeight: theme.typography.fontWeight.light,
   zIndex: 2,
@@ -64,3 +65,10 @@ export const StyledNavLink = styled(NavLink)(({ theme }) => ({
     },
   },
 }));
+
+export const StyledDeleteBtnContainer = styled('div')`
+  display: flex;
+  margin-left: auto;
+  padding: ${({ theme }) => theme.spacing(0.5)};
+  border-radius: 50%;
+`;

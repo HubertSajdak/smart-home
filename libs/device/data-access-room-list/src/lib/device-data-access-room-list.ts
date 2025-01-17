@@ -1,6 +1,8 @@
 import { supabaseSmartHome } from '@smart-home/shared/supabase/db';
 import { queryKeysConfig } from '@smart-home/shared/utils/react-query';
+import { routes } from '@smart-home/shared/utils/routes';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+import { useNavigate } from 'react-router-dom';
 
 export interface IRoomsList {
   id: number;
@@ -88,6 +90,23 @@ export function useAddRoom() {
     mutationFn: () => addRoom('New Room'),
     onSuccess: async () => {
       await queryClient.invalidateQueries({ queryKey: [queryKeysConfig.roomsNavigation.queryKey] });
+    },
+  });
+}
+
+async function deleteRoom(roomId: number) {
+  const { error } = await supabaseSmartHome.from(queryKeysConfig.rooms.relationKey).delete().match({ id: roomId });
+  return error;
+}
+
+export function useDeleteRoom() {
+  const navigate = useNavigate();
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (roomId: number) => deleteRoom(roomId),
+    onSuccess: async () => {
+      await queryClient.invalidateQueries({ queryKey: [queryKeysConfig.roomsNavigation.queryKey] });
+      navigate(routes.device.list.path());
     },
   });
 }

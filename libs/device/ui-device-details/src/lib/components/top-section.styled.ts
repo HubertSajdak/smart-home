@@ -22,4 +22,10 @@ export const StyledDeviceName = styled('div')`
   display: flex;
   flex-direction: column;
   gap: ${({ theme }) => theme.spacing(1)};
+  width: 130px;
+`;
+
+export const StyledDeviceActionButtons = styled('div')`
+  display: flex;
+  gap: ${({ theme }) => theme.spacing(1)};
 `;

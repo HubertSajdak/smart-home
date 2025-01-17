@@ -128,3 +128,22 @@ export function useUpdateDevicePowerSettings() {
     },
   });
 }
+
+async function deleteDevice(deviceId: number) {
+  const { error } = await supabaseSmartHome.from(queryKeysConfig.devices.relationKey).delete().match({ id: deviceId });
+  return error;
+}
+
+export function useDeleteDevice() {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: async (deviceId: number) => {
+      await deleteDevice(deviceId);
+    },
+    onSuccess: async () => {
+      await queryClient.invalidateQueries({
+        queryKey: [queryKeysConfig.devices.queryKey],
+      });
+    },
+  });
+}
