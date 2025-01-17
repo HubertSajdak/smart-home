@@ -18,3 +18,4 @@ export { default as Dots } from './dots';
 export { default as Speaker } from './speaker';
 export { default as Shield } from './shield';
 export { default as Delete } from './delete';
+export { default as TrashBin } from './trash-bin';

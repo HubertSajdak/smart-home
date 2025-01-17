@@ -7,7 +7,7 @@ import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useTheme } from 'styled-components';
 
-import { StyledRoomInput } from './room-input.styled';
+import { StyledDoneIconContainer, StyledRoomInput } from './room-input.styled';
 
 type TRoomInputProps = {
   label: string;
@@ -49,9 +49,9 @@ const RoomInput = ({ label, roomId, onEditRoom, ...rest }: TRoomInputProps) => {
             onChange={onInputChange}
             value={roomLabel}
           />
-          <div onClick={onDoneIconClick}>
-            <Icon name={'Done'} />
-          </div>
+          <StyledDoneIconContainer onClick={onDoneIconClick}>
+            <Icon name={'Done'} width={16} height={16} color={'white'} />
+          </StyledDoneIconContainer>
         </div>
       ) : (
         <NavLink

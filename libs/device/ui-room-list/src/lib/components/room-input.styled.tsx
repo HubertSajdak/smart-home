@@ -32,3 +32,7 @@ export const StyledRoomInput = styled.div(({ theme }) => ({
     },
   },
 }));
+
+export const StyledDoneIconContainer = styled('div')`
+  margin-left: auto;
+`;
