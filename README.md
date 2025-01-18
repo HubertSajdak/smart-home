@@ -17,7 +17,7 @@ Server: Supabase
 - Assigning devices to rooms,
 - Changing devices settings
 
-[Live]: (https://smart-home-hubert-sajdak.azurewebsites.net/)
+Live: https://smart-home-hubert-sajdak.azurewebsites.net/
 
 ## Screenshots
 
