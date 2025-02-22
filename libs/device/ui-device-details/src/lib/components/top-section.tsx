@@ -1,6 +1,6 @@
 import { useDeleteDevice } from '@smart-home/device/data-access-device-list';
+import { IconButton, Typography } from '@smart-home/shared/design-system';
 import { Icon } from '@smart-home/shared/theme/smart-home-theme';
-import { IconButton, Typography } from '@smart-home/shared/ui';
 import { deviceColorMapping, deviceIconMapping } from '@smart-home/shared/utils/functions';
 import { useDeviceSettingsStore } from '@smart-home/shared/utils/store';
 import React, { useCallback } from 'react';

@@ -1,6 +1,6 @@
-import { DeviceUiDeviceDetails } from '@smart-home/device//ui-device-details';
-import { DeviceUiAppBar } from '@smart-home/device/ui-app-bar';
+import { DeviceUiDeviceDetails } from '@smart-home/device/ui-device-details';
 import { useMediaQuery } from '@smart-home/shared/theme/smart-home-theme';
+import { AppBar } from '@smart-home/shared/ui/app-bar';
 import { useDeviceSettingsStore } from '@smart-home/shared/utils/store';
 import React, { useState } from 'react';
 import { Outlet } from 'react-router-dom';
@@ -22,7 +22,7 @@ const Layout = () => {
       <StyledLayoutContentWrapper>
         {isSettingsWindowOpen && <DeviceUiDeviceDetails />}
         {!isDesktop && <MobileBurgerMenu isSidebarOpen={isOpen} onSidebarOpen={handleSidebarOpen} />}
-        <DeviceUiAppBar />
+        <AppBar />
         <Outlet />
       </StyledLayoutContentWrapper>
     </StyledLayout>

@@ -1,6 +1,6 @@
 import { Input, InputProps } from '@mui/base/Input';
+import { NavLink } from '@smart-home/shared/design-system';
 import { Icon, useMediaQuery } from '@smart-home/shared/theme/smart-home-theme';
-import { NavLink } from '@smart-home/shared/ui';
 import { truncateString } from '@smart-home/shared/utils/functions';
 import { routes } from '@smart-home/shared/utils/routes';
 import React, { useState } from 'react';

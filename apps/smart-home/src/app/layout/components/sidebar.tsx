@@ -1,6 +1,6 @@
 import { DeviceUiRoomList } from '@smart-home/device/ui-room-list';
+import { Typography } from '@smart-home/shared/design-system';
 import { useMediaQuery } from '@smart-home/shared/theme/smart-home-theme';
-import { Typography } from '@smart-home/shared/ui';
 import React from 'react';
 
 import MobileBurgerMenu from './mobile-burger-menu';

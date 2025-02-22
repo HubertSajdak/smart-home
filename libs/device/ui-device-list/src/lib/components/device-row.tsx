@@ -1,5 +1,5 @@
+import { Typography } from '@smart-home/shared/design-system';
 import { Icon } from '@smart-home/shared/theme/smart-home-theme';
-import { Typography } from '@smart-home/shared/ui';
 import { deviceColorMapping, deviceIconMapping, truncateString } from '@smart-home/shared/utils/functions';
 import { TDeviceSettings, useDeviceSettingsStore } from '@smart-home/shared/utils/store';
 import React from 'react';

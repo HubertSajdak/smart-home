@@ -1,5 +1,5 @@
+import { IconButton } from '@smart-home/shared/design-system';
 import { Icon } from '@smart-home/shared/theme/smart-home-theme';
-import { IconButton } from '@smart-home/shared/ui';
 import React from 'react';
 import { useTheme } from 'styled-components';
 

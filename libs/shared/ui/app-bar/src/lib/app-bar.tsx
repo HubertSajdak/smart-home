@@ -1,9 +1,10 @@
+import { Tabs } from '@mui/base';
+
+import { FiltersTabsSection, StyledAppBar } from './app-bar.styled';
 import ChipFilterList from './components/chip-filter-list';
 import DropdownFilter from './components/dropdown-filter';
-import Tabs from './components/tabs';
-import { FiltersTabsSection, StyledAppBar } from './device-ui-app-bar.styled';
 
-export function DeviceUiAppBar() {
+export function AppBar() {
   return (
     <StyledAppBar>
       <ChipFilterList />
@@ -15,4 +16,4 @@ export function DeviceUiAppBar() {
   );
 }
 
-export default DeviceUiAppBar;
+export default AppBar;

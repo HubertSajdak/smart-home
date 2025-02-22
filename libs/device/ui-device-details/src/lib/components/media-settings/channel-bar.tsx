@@ -1,4 +1,4 @@
-import { Typography } from '@smart-home/shared/ui';
+import { Typography } from '@smart-home/shared/design-system';
 import React from 'react';
 
 import { StyledChannelBar } from './channel-bar.styled';

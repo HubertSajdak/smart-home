@@ -1,6 +1,6 @@
 import { useGetRooms } from '@smart-home/device/data-access-room-list';
 import { DeviceUiDeviceList } from '@smart-home/device/ui-device-list';
-import { LoadingSpinner } from '@smart-home/shared/ui';
+import { LoadingSpinner } from '@smart-home/shared/design-system';
 import React from 'react';
 
 import { StyledDeviceFeatureDeviceDashboard } from './device-feature-device-dashboard.styled';
