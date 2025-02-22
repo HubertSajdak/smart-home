@@ -1,6 +1,6 @@
 import { ErrorMessage } from '@hookform/error-message';
 import { IRoomsList } from '@smart-home/device/data-access-room-list';
-import { Button, Input, Select, Typography } from '@smart-home/shared/ui';
+import { Button, Input, Select, Typography } from '@smart-home/shared/design-system';
 import React from 'react';
 import { Control, Controller, FieldErrors } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';

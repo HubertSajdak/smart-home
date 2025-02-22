@@ -13,32 +13,71 @@
             "allow": [],
             "depConstraints": [
               {
-                "sourceTag": "type:db",
-                "onlyDependOnLibsWithTags": ["type:db"]
+                "sourceTag": "type:shared/db",
+                "onlyDependOnLibsWithTags": []
               },
               {
-                "sourceTag": "type:theme",
-                "onlyDependOnLibsWithTags": ["type:theme"]
+                "sourceTag": "type:shared/theme",
+                "onlyDependOnLibsWithTags": []
               },
               {
-                "sourceTag": "type:utils",
-                "onlyDependOnLibsWithTags": ["type:theme", "type:utils"]
+                "sourceTag": "type:shared/theme",
+                "onlyDependOnLibsWithTags": ["scope:shared"]
+              },
+              {
+                "sourceTag": "type:shared/design-system",
+                "onlyDependOnLibsWithTags": ["scope:shared"]
               },
               {
                 "sourceTag": "type:data-access",
-                "onlyDependOnLibsWithTags": ["type:theme", "type:utils", "type:db"]
+                "onlyDependOnLibsWithTags": ["type:shared/utils", "type:shared/db"]
               },
               {
                 "sourceTag": "type:ui",
-                "onlyDependOnLibsWithTags": ["type:theme", "type:utils", "type:data-access", "type:ui"]
+                "onlyDependOnLibsWithTags": [
+                  "type:shared/theme",
+                  "type:shared/utils",
+                  "type:data-access",
+                  "type:shared/design-system",
+                  "type:ui"
+                ]
+              },
+              {
+                "sourceTag": "type:shared/utils",
+                "onlyDependOnLibsWithTags": []
+              },
+              {
+                "sourceTag": "type:shared/utils",
+                "onlyDependOnLibsWithTags": ["scope:shared"]
+              },
+              {
+                "sourceTag": "type:shared/ui",
+                "onlyDependOnLibsWithTags": ["type:shared/design-system", "type:shared/utils", "type:shared/theme"]
+              },
+              {
+                "sourceTag": "type:shared/ui",
+                "onlyDependOnLibsWithTags": ["scope:shared"]
               },
               {
                 "sourceTag": "type:feature",
-                "onlyDependOnLibsWithTags": ["type:theme", "type:utils", "type:data-access", "type:ui"]
+                "onlyDependOnLibsWithTags": [
+                  "type:shared/utils",
+                  "type:data-access",
+                  "type:ui",
+                  "type:shared/design-system"
+                ]
               },
               {
                 "sourceTag": "type:app",
-                "onlyDependOnLibsWithTags": ["type:theme", "type:utils", "type:data-access", "type:ui", "type:feature"]
+                "onlyDependOnLibsWithTags": [
+                  "type:shared/theme",
+                  "type:shared/utils",
+                  "type:data-access",
+                  "type:shared/ui",
+                  "type:feature",
+                  "type:shared/design-system",
+                  "type:ui"
+                ]
               },
               {
                 "sourceTag": "domain:shared",

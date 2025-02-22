@@ -1,5 +1,5 @@
+import { NavLink } from '@smart-home/shared/design-system';
 import { Icon } from '@smart-home/shared/theme/smart-home-theme';
-import { NavLink } from '@smart-home/shared/ui';
 import { formatTranslationKey } from '@smart-home/shared/utils/functions';
 import { routes } from '@smart-home/shared/utils/routes';
 import React from 'react';
@@ -21,11 +21,12 @@ const navigationLinks = [
 ];
 const SidebarNavigationList = () => {
   const { t } = useTranslation();
+
   return (
     <>
       <StyledNavigationList>
-        {navigationLinks.map(({ label, path, icon }) => {
-          return <NavLink key={label} icon={icon} label={t(formatTranslationKey(label))} path={path} />;
+        {navigationLinks.map(({ label, path, icon }, idx) => {
+          return <NavLink key={label} roomId={idx} icon={icon} label={t(formatTranslationKey(label))} path={path} />;
         })}
       </StyledNavigationList>
     </>

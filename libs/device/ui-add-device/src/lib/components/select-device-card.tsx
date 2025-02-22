@@ -1,5 +1,5 @@
+import { Typography } from '@smart-home/shared/design-system';
 import { Icon } from '@smart-home/shared/theme/smart-home-theme';
-import { Typography } from '@smart-home/shared/ui';
 import { deviceColorMapping } from '@smart-home/shared/utils/functions';
 import React from 'react';
 import styled, { useTheme } from 'styled-components';

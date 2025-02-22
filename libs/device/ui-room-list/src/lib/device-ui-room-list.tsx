@@ -1,4 +1,9 @@
-import { useAddRoom, useGetRoomsNavigationList, useUpdateRoom } from '@smart-home/device/data-access-room-list';
+import {
+  useAddRoom,
+  useDeleteRoom,
+  useGetRoomsNavigationList,
+  useUpdateRoom,
+} from '@smart-home/device/data-access-room-list';
 import React, { useCallback } from 'react';
 
 import AddNewRoom from './components/add-new-room';
@@ -8,6 +13,7 @@ function DeviceUiRoomList() {
   const { data: rooms } = useGetRoomsNavigationList();
   const { mutate: addRoomMutation } = useAddRoom();
   const { mutate: editRoomMutation } = useUpdateRoom();
+  const { mutate: deleteRoomMutation } = useDeleteRoom();
   const createRoom = useCallback(() => {
     addRoomMutation();
   }, [addRoomMutation]);
@@ -17,12 +23,15 @@ function DeviceUiRoomList() {
     },
     [editRoomMutation]
   );
+  const deleteRoom = (roomId: number) => {
+    deleteRoomMutation(roomId);
+  };
   return (
     <>
       <AddNewRoom onAddRoom={createRoom} />
       {rooms &&
         rooms.map(({ label, id }) => {
-          return <RoomInput onEditRoom={editRoom} key={id} roomId={id} label={label} />;
+          return <RoomInput onEditRoom={editRoom} key={id} roomId={id} label={label} onDeleteRoom={deleteRoom} />;
         })}
     </>
   );

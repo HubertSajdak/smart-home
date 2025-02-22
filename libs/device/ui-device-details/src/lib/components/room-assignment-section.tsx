@@ -1,6 +1,6 @@
 import { useUpdateDeviceRoomAssignment } from '@smart-home/device/data-access-device-list';
 import { IRoomsList, useGetRooms } from '@smart-home/device/data-access-room-list';
-import { Select, Typography } from '@smart-home/shared/ui';
+import { Select, Typography } from '@smart-home/shared/design-system';
 import { useDeviceSettingsStore } from '@smart-home/shared/utils/store';
 import React, { useCallback, useEffect, useState } from 'react';
 import { useDebouncedCallback } from 'use-debounce';

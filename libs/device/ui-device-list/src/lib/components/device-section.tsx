@@ -1,5 +1,5 @@
 import { useGetRoomDevices, useUpdateDevicePowerSettings } from '@smart-home/device/data-access-device-list';
-import { LoadingSpinner, Typography } from '@smart-home/shared/ui';
+import { LoadingSpinner, Typography } from '@smart-home/shared/design-system';
 import { useDeviceStore } from '@smart-home/shared/utils/store';
 import React, { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';

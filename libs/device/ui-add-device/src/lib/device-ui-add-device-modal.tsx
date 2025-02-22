@@ -1,5 +1,5 @@
+import { IconButton } from '@smart-home/shared/design-system';
 import { Icon } from '@smart-home/shared/theme/smart-home-theme';
-import { IconButton } from '@smart-home/shared/ui';
 import { MouseEvent, useCallback, useRef, useState } from 'react';
 
 import AddDeviceForm from './components/add-device-form';
