@@ -1,5 +1,4 @@
 import { SelectRootSlotProps } from '@mui/base';
-import { useGetAllDeviceTypes } from '@smart-home/device/data-access-device-list';
 import { Icon } from '@smart-home/shared/theme/smart-home-theme';
 import { useDeviceStore } from '@smart-home/shared/utils/store';
 import React from 'react';
@@ -14,12 +13,18 @@ import {
   StyledSelect,
 } from './dropdown-filter.styled';
 
-const DropdownFilter = () => {
+interface IOption {
+  label: string;
+  value: number;
+}
+interface IDropdownFilterProps {
+  options: IOption[];
+}
+const DropdownFilter = ({ options }: IDropdownFilterProps) => {
   const {
     updateDeviceTypeIdParam,
     queryParams: { deviceTypeId },
   } = useDeviceStore();
-  const { data: deviceTypes } = useGetAllDeviceTypes();
   const changeDeviceTypeQuery = async (deviceTypeId: number) => {
     updateDeviceTypeIdParam(deviceTypeId);
   };
@@ -35,12 +40,12 @@ const DropdownFilter = () => {
       name={'device-filter'}
       value={deviceTypeId}
     >
-      {deviceTypes &&
-        deviceTypes.length > 0 &&
-        deviceTypes.map(({ id, type }) => {
+      {options &&
+        options.length > 0 &&
+        options.map(({ label, value }) => {
           return (
-            <StyledOption key={id} value={id} onClick={() => changeDeviceTypeQuery(id)}>
-              {type}
+            <StyledOption key={value} value={value} onClick={() => changeDeviceTypeQuery(value)}>
+              {label}
             </StyledOption>
           );
         })}

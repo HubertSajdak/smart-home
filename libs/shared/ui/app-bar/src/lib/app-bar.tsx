@@ -4,12 +4,26 @@ import { FiltersTabsSection, StyledAppBar } from './app-bar.styled';
 import ChipFilterList from './components/chip-filter-list';
 import DropdownFilter from './components/dropdown-filter';
 
-export function AppBar() {
+export interface IDeviceType {
+  id: number;
+  type: string;
+}
+interface IAppBarProps {
+  deviceTypeList: IDeviceType[];
+}
+export function AppBar({ deviceTypeList }: IAppBarProps) {
+  const chipsMapping = deviceTypeList.map(({ id, type }) => ({
+    id: id,
+    label: type,
+  }));
+
+  const optionsMapping = deviceTypeList.map(({ id, type }) => ({ label: type, value: id }));
+
   return (
     <StyledAppBar>
-      <ChipFilterList />
+      <ChipFilterList chips={chipsMapping} />
       <FiltersTabsSection>
-        <DropdownFilter />
+        <DropdownFilter options={optionsMapping || []} />
         <Tabs />
       </FiltersTabsSection>
     </StyledAppBar>

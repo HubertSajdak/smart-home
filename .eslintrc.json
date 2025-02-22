@@ -25,12 +25,22 @@
                 "onlyDependOnLibsWithTags": ["scope:shared"]
               },
               {
+                "sourceTag": "type:shared/design-system",
+                "onlyDependOnLibsWithTags": ["scope:shared"]
+              },
+              {
                 "sourceTag": "type:data-access",
                 "onlyDependOnLibsWithTags": ["type:shared/utils", "type:shared/db"]
               },
               {
                 "sourceTag": "type:ui",
-                "onlyDependOnLibsWithTags": ["type:shared/theme", "type:shared/utils", "type:data-access", "type:shared/design-system", "type:ui"]
+                "onlyDependOnLibsWithTags": [
+                  "type:shared/theme",
+                  "type:shared/utils",
+                  "type:data-access",
+                  "type:shared/design-system",
+                  "type:ui"
+                ]
               },
               {
                 "sourceTag": "type:shared/utils",
@@ -41,12 +51,33 @@
                 "onlyDependOnLibsWithTags": ["scope:shared"]
               },
               {
+                "sourceTag": "type:shared/ui",
+                "onlyDependOnLibsWithTags": ["type:shared/design-system", "type:shared/utils", "type:shared/theme"]
+              },
+              {
+                "sourceTag": "type:shared/ui",
+                "onlyDependOnLibsWithTags": ["scope:shared"]
+              },
+              {
                 "sourceTag": "type:feature",
-                "onlyDependOnLibsWithTags": ["type:shared/utils", "type:data-access", "type:ui", "type:shared/design-system"]
+                "onlyDependOnLibsWithTags": [
+                  "type:shared/utils",
+                  "type:data-access",
+                  "type:ui",
+                  "type:shared/design-system"
+                ]
               },
               {
                 "sourceTag": "type:app",
-                "onlyDependOnLibsWithTags": ["type:shared/theme", "type:shared/utils", "type:data-access", "type:shared/ui", "type:feature", "type:shared/design-system", "type:ui"]
+                "onlyDependOnLibsWithTags": [
+                  "type:shared/theme",
+                  "type:shared/utils",
+                  "type:data-access",
+                  "type:shared/ui",
+                  "type:feature",
+                  "type:shared/design-system",
+                  "type:ui"
+                ]
               },
               {
                 "sourceTag": "domain:shared",

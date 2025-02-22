@@ -1,4 +1,3 @@
-import { useDeleteRoom } from '@smart-home/device/data-access-room-list';
 import { Icon } from '@smart-home/shared/theme/smart-home-theme';
 import React, { ReactNode } from 'react';
 
@@ -10,21 +9,17 @@ interface INavLinkProps {
   path: string;
   icon?: ReactNode;
   showDeleteIcon?: boolean;
+  onDelete: (id: number) => void;
 }
 
-export const NavLink = ({ roomId, label, path, icon, showDeleteIcon = false }: INavLinkProps) => {
-  const { mutate: deleteRoomMutation } = useDeleteRoom();
-  const deleteRoom = (roomId: number) => {
-    deleteRoomMutation(roomId);
-  };
-
+export const NavLink = ({ roomId, label, path, icon, showDeleteIcon = false, onDelete }: INavLinkProps) => {
   return (
     <StyledNavLink to={path}>
       {icon && icon} <span>{label}</span>
       {showDeleteIcon && (
         <StyledDeleteBtnContainer
           onClick={() => {
-            deleteRoom(roomId);
+            onDelete(roomId);
           }}
         >
           <Icon name="Delete" width={16} height={16} />

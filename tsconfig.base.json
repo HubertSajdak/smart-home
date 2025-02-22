@@ -15,12 +15,12 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@smart-home/device/ui-device-details": ["libs/device/ui-device-details/src/index.ts"],
       "@smart-home/device/data-access-device-list": ["libs/device/data-access-device-list/src/index.ts"],
       "@smart-home/device/data-access-room-list": ["libs/device/data-access-room-list/src/index.ts"],
       "@smart-home/device/feature-device-dashboard": ["libs/device/feature-device-dashboard/src/index.ts"],
       "@smart-home/device/feature-device-room": ["libs/device/feature-device-room/src/index.ts"],
       "@smart-home/device/ui-add-device": ["libs/device/ui-add-device/src/index.ts"],
+      "@smart-home/device/ui-device-details": ["libs/device/ui-device-details/src/index.ts"],
       "@smart-home/device/ui-device-list": ["libs/device/ui-device-list/src/index.ts"],
       "@smart-home/device/ui-room-list": ["libs/device/ui-room-list/src/index.ts"],
       "@smart-home/shared/design-system": ["libs/shared/design-system/src/index.ts"],

@@ -1,3 +1,4 @@
+import { useGetAllDeviceTypes } from '@smart-home/device/data-access-device-list';
 import { DeviceUiDeviceDetails } from '@smart-home/device/ui-device-details';
 import { useMediaQuery } from '@smart-home/shared/theme/smart-home-theme';
 import { AppBar } from '@smart-home/shared/ui/app-bar';
@@ -14,6 +15,8 @@ const Layout = () => {
   const isDesktop = useMediaQuery('desktopSize');
   const [isOpen, setIsOpen] = useState(false);
   const handleSidebarOpen = () => setIsOpen((prev) => !prev);
+  const { data: deviceTypes } = useGetAllDeviceTypes();
+
   return (
     <StyledLayout>
       <StyledLayoutSidebarWrapper $isSidebarOpen={isOpen}>
@@ -22,7 +25,7 @@ const Layout = () => {
       <StyledLayoutContentWrapper>
         {isSettingsWindowOpen && <DeviceUiDeviceDetails />}
         {!isDesktop && <MobileBurgerMenu isSidebarOpen={isOpen} onSidebarOpen={handleSidebarOpen} />}
-        <AppBar />
+        <AppBar deviceTypeList={deviceTypes || []} />
         <Outlet />
       </StyledLayoutContentWrapper>
     </StyledLayout>
