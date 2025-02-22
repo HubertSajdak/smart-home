@@ -9,14 +9,14 @@ interface INavLinkProps {
   path: string;
   icon?: ReactNode;
   showDeleteIcon?: boolean;
-  onDelete: (id: number) => void;
+  onDelete?: (id: number) => void;
 }
 
 export const NavLink = ({ roomId, label, path, icon, showDeleteIcon = false, onDelete }: INavLinkProps) => {
   return (
     <StyledNavLink to={path}>
       {icon && icon} <span>{label}</span>
-      {showDeleteIcon && (
+      {showDeleteIcon && onDelete && (
         <StyledDeleteBtnContainer
           onClick={() => {
             onDelete(roomId);

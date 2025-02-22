@@ -1,4 +1,3 @@
-import { useDeleteRoom } from '@smart-home/device/data-access-room-list';
 import { NavLink } from '@smart-home/shared/design-system';
 import { Icon } from '@smart-home/shared/theme/smart-home-theme';
 import { formatTranslationKey } from '@smart-home/shared/utils/functions';
@@ -22,24 +21,12 @@ const navigationLinks = [
 ];
 const SidebarNavigationList = () => {
   const { t } = useTranslation();
-  const { mutate: deleteRoomMutation } = useDeleteRoom();
-  const deleteRoom = (roomId: number) => {
-    deleteRoomMutation(roomId);
-  };
+
   return (
     <>
       <StyledNavigationList>
         {navigationLinks.map(({ label, path, icon }, idx) => {
-          return (
-            <NavLink
-              key={label}
-              roomId={idx}
-              icon={icon}
-              label={t(formatTranslationKey(label))}
-              path={path}
-              onDelete={deleteRoom}
-            />
-          );
+          return <NavLink key={label} roomId={idx} icon={icon} label={t(formatTranslationKey(label))} path={path} />;
         })}
       </StyledNavigationList>
     </>

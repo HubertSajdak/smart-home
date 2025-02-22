@@ -13,9 +13,10 @@ type TRoomInputProps = {
   label: string;
   roomId: number;
   onEditRoom: ({ id, label }: { id: number; label: string }) => void;
+  onDeleteRoom: (id: number) => void;
 } & InputProps;
 
-const RoomInput = ({ label, roomId, onEditRoom, ...rest }: TRoomInputProps) => {
+const RoomInput = ({ label, roomId, onEditRoom, onDeleteRoom, ...rest }: TRoomInputProps) => {
   const theme = useTheme();
   const { id } = useParams();
   const [isEditing, setIsEditing] = useState(false);
@@ -60,6 +61,7 @@ const RoomInput = ({ label, roomId, onEditRoom, ...rest }: TRoomInputProps) => {
           path={routes.room.path(roomId)}
           showDeleteIcon={showDeleteIcon}
           roomId={roomId}
+          onDelete={() => onDeleteRoom(roomId)}
         />
       )}
     </StyledRoomInput>
