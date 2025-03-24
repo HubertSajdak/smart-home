@@ -23,9 +23,12 @@ function DeviceUiRoomList() {
     },
     [editRoomMutation]
   );
-  const deleteRoom = (roomId: number) => {
-    deleteRoomMutation(roomId);
-  };
+  const deleteRoom = useCallback(
+    (roomId: number) => {
+      deleteRoomMutation(roomId);
+    },
+    [deleteRoomMutation]
+  );
   return (
     <>
       <AddNewRoom onAddRoom={createRoom} />
