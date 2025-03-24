@@ -33,6 +33,7 @@ const RoomInput = ({ label, roomId, onEditRoom, onDeleteRoom, ...rest }: TRoomIn
   const showDeleteIcon = id ? +id === roomId : false;
   return (
     <StyledRoomInput
+      data-testid="room-input"
       onDoubleClick={() => {
         setIsEditing(true);
       }}
